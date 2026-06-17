@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connecter — Portfolio Rayan SAOUD</title>
+<meta name="description" content="Compétence Connecter les entreprises et les usagers — BUT R&T 2e année.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>rayan@devcloud:~$</a>
+    <button class="nav-toggle" aria-label="Menu">≡</button>
+    <div class="nav-links">
+      <a href="administrer.html">Administrer</a>
+      <a href="connecter.html" class="active">Connecter</a>
+      <a href="programmer.html">Programmer</a>
+      <a href="orchestrer.html">Orchestrer</a>
+      <a href="developper.html">Développer</a>
+      <a href="../index.html#cv">CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="comp-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="../index.html">~</a> / <a href="../index.html#competences">compétences</a> / connecter</div>
+    <div class="verb-big">COMPÉTENCE 02 · Connecter · Niveau 2</div>
+    <h1>Connecter les entreprises et les usagers</h1>
+    <p class="lead">Relier des sites distants comme le ferait un opérateur — via une offre MPLS-VPN sur un cœur de réseau multi-AS — et raccorder l'usager final jusqu'à l'objet connecté.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="subsection reveal">
+    <h2><span class="marker">01</span> Contexte</h2>
+    <div class="w-grid">
+      <div class="w"><div class="q">Pourquoi</div><div class="a">Deux entreprises présentes sur trois villes ont besoin d'une connectivité inter-sites fiable, fournie par un opérateur.</div></div>
+      <div class="w"><div class="q">Qui</div><div class="a">SAÉ en groupe de 3 (interconnexion opérateur) ; SAÉ de transmission menée en parallèle (prise intelligente).</div></div>
+      <div class="w"><div class="q">Quoi</div><div class="a">Un cœur de réseau FAI sur 3 AS offrant du MPLS-VPN, et une chaîne de transmission jusqu'à l'usager.</div></div>
+      <div class="w"><div class="q">Où</div><div class="a">Maquette EVE-NG répartie sur plusieurs machines, à l'IUT de Colmar.</div></div>
+      <div class="w"><div class="q">Quand</div><div class="a">Semestre 3 — volet « réseau opérateur » de la SAÉ multi-sites, et SAÉ 3.01.</div></div>
+      <div class="w"><div class="q">Comment</div><div class="a">BGP/MP-BGP avec Route-Reflectors, VRF par client, RIP/OSPF dans les AS, filtrage de routes et NAT statique.</div></div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">02</span> Actions, traces &amp; preuves</h2>
+    <div class="prose">
+      <p>Le volet opérateur consiste à transformer un ensemble de routeurs en un véritable <strong>fournisseur d'accès</strong> capable de transporter le trafic privé de deux clients de manière étanche :</p>
+      <ul>
+        <li>Mise en place du routage interne à chaque système autonome : <strong>RIP</strong> pour les AS 10 et 20, <strong>OSPF</strong> pour l'AS 30, avec connectivité totale validée par ping sur les loopbacks.</li>
+        <li>Sessions <strong>BGP / MP-BGP</strong> montées en <strong>peer-group</strong> et en <strong>Route-Reflector</strong> (le routeur P1 jouant le rôle de RR) pour éviter le maillage complet et transporter les préfixes IPv4 et VPNv4.</li>
+        <li>Création des <strong>VRF</strong> par client (UC Exchange, ABC Conseil) avec leurs RD/RT, raccordement des CE en routage statique ou RIP selon le client.</li>
+        <li><strong>Filtrage de routes</strong> pour cloisonner les clients : seuls les préfixes clients circulent, et certaines politiques imposent qu'un flux transite par un AS précis ou que l'accès ne parte que du siège.</li>
+        <li>Exposition d'un serveur web au public via une <strong>translation NAT</strong> dédiée, en parallèle de l'accès MPLS-VPN.</li>
+      </ul>
+      <p>En complément, la SAÉ <strong>« Prise Wifi intelligente »</strong> (mise en œuvre d'un système de transmission, notée 18/20) m'a fait travailler le raccordement de l'usager final — la dernière brique entre l'infrastructure et l'objet connecté.</p>
+    </div>
+    <div class="evidence">
+      <div class="ev"><div class="t">Tests de redondance</div><div class="d">Coupure d'interface ASBR et vérification que le ping inter-sites continue de passer — preuve de la tolérance aux pannes.</div></div>
+      <div class="ev"><div class="t">Traceroute de politique</div><div class="d">Vérification qu'un flux UC Exchange Strasbourg→Metz transite bien par l'AS 20, conformément au filtrage BGP appliqué.</div></div>
+      <div class="ev"><div class="t">Étanchéité inter-clients</div><div class="d">Validation que deux sites d'un client ne peuvent pas joindre ceux d'un autre — cloisonnement VPN confirmé.</div></div>
+    </div>
+    <figure style="margin:24px 0 0">
+      <img src="../assets/img/topologie-multisite.svg" alt="Topologie du réseau multi-sites avec cœur FAI à 3 AS et clients en MPLS-VPN" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
+      <figcaption style="font-family:var(--mono);font-size:0.78rem;color:var(--text-faint);margin-top:10px;text-align:center">Schéma d'architecture — cœur FAI (3 AS), interconnexion MPLS-VPN des deux clients.</figcaption>
+    </figure>
+
+    <h3 style="margin-top:32px">Captures réelles du labo</h3>
+    <div class="captures">
+      <figure class="capture">
+        <img src="../assets/img/captures/eveng-topologie.png" alt="Maquette EVE-NG avec serveurs Linux et Windows reliés par un switch">
+        <figcaption><strong>Maquette virtualisée</strong>Topologie montée dans l'environnement de virtualisation : serveurs Linux et Windows raccordés via le réseau du labo.<span class="badge-real">capture réelle · EVE-NG</span></figcaption>
+      </figure>
+      <figure class="capture">
+        <img src="../assets/img/captures/dns-ping-test.png" alt="Test de ping de résolution DNS">
+        <figcaption><strong>Test de connectivité</strong>Vérification de la résolution de noms et de la connectivité depuis le serveur ns2.<span class="badge-real">capture réelle</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">03</span> SAÉ rattachées</h2>
+    <div class="proj-grid">
+      <div class="proj">
+        <div class="head"><h3>Interconnexion opérateur MPLS-VPN</h3><span class="badge">S3 · groupe de 3</span></div>
+        <p>Cœur de réseau FAI sur 3 AS, offre MPLS-VPN pour deux clients multi-sites, haute disponibilité et politiques de routage.</p>
+        <div class="tags"><span class="tag">BGP / MP-BGP</span><span class="tag">MPLS-VPN</span><span class="tag">VRF</span><span class="tag">OSPF / RIP</span><span class="tag">NAT</span></div>
+      </div>
+      <div class="proj">
+        <div class="head"><h3>Prise Wifi intelligente</h3><span class="badge">SAÉ 3.01 · 18/20</span></div>
+        <p>Mise en œuvre d'un système de transmission jusqu'à l'usager — du raccordement à l'objet connecté.</p>
+        <div class="tags"><span class="tag">Transmission</span><span class="tag">Wifi</span><span class="tag">IoT</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">04</span> Lien avec le référentiel</h2>
+    <div class="ref-tree">
+      <svg class="svg-tree" viewBox="0 0 760 300" role="img" aria-label="Arbre de la compétence Connecter">
+        <path class="edge" d="M380,58 L130,150"/>
+        <path class="edge" d="M380,58 L310,150"/>
+        <path class="edge" d="M380,58 L490,150"/>
+        <path class="edge" d="M380,58 L660,150"/>
+        <rect class="node-comp" x="300" y="26" width="160" height="40" rx="8"/>
+        <text class="node-comp-label" x="380" y="51" text-anchor="middle">Connecter</text>
+        <g>
+          <rect class="node-ac" x="50" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="130" y="172" text-anchor="middle">Déployer un</text>
+          <text class="node-ac-label" x="130" y="187" text-anchor="middle">réseau opérateur</text>
+          <text class="node-ac-label" x="130" y="202" text-anchor="middle">multi-AS</text>
+          <text class="chk" x="130" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="230" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="310" y="172" text-anchor="middle">Mettre en œuvre</text>
+          <text class="node-ac-label" x="310" y="187" text-anchor="middle">MPLS-VPN</text>
+          <text class="node-ac-label" x="310" y="202" text-anchor="middle">(VRF, MP-BGP)</text>
+          <text class="chk" x="310" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="410" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="490" y="172" text-anchor="middle">Garantir la</text>
+          <text class="node-ac-label" x="490" y="187" text-anchor="middle">disponibilité &amp;</text>
+          <text class="node-ac-label" x="490" y="202" text-anchor="middle">le cloisonnement</text>
+          <text class="chk" x="490" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="590" y="150" width="150" height="74" rx="7"/>
+          <text class="node-ac-label" x="665" y="172" text-anchor="middle">Raccorder</text>
+          <text class="node-ac-label" x="665" y="187" text-anchor="middle">l'usager final</text>
+          <text class="node-ac-label" x="665" y="202" text-anchor="middle">(transmission)</text>
+          <text class="chk" x="665" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+      </svg>
+      <div class="ref-caption">Composantes essentielles mises en œuvre — réseau opérateur &amp; transmission</div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <div class="reflex">
+      <h3>Réflexivité</h3>
+      <div class="q-list">
+        <div class="qa"><div class="q">Quelle difficulté ai-je rencontrée ?</div><div class="a">Le MPLS-VPN empile beaucoup de couches (IGP, BGP, MP-BGP, VRF) et une erreur à un étage casse tout sans dire lequel. Au début, je ne savais pas par où commencer pour diagnostiquer quand un client ne joignait pas son autre site.</div></div>
+        <div class="qa"><div class="q">Comment l'ai-je dépassée ?</div><div class="a">J'ai appris à dérouler le diagnostic dans l'ordre des couches : d'abord la connectivité IGP interne à l'AS, puis les sessions BGP, puis les routes VPNv4, puis les VRF. En vérifiant « est-ce que cet étage fonctionne avant de regarder le suivant ? », j'isolais la panne au lieu de tout reprendre.</div></div>
+        <div class="qa"><div class="q">Qu'ai-je proposé ou décidé ?</div><div class="a">Plutôt qu'un maillage BGP complet, j'ai utilisé la logique Route-Reflector et les peer-groups pour garder une configuration lisible et extensible. Et pour répondre aux politiques clients, j'ai mis en place un filtrage de routes qui force certains flux à passer par un AS donné.</div></div>
+        <div class="qa"><div class="q">En quoi est-ce généralisable ?</div><div class="a">Raisonner « par couches » pour diagnostiquer, et concevoir une configuration qui reste maintenable quand le réseau grandit, sont des principes valables bien au-delà du MPLS. C'est la même rigueur qui sert à isoler une panne sur n'importe quel système distribué.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-cta reveal" style="margin:8px 0 48px">
+    <a href="programmer.html" class="btn btn-primary">Compétence suivante : Programmer →</a>
+    <a href="../index.html#competences" class="btn">← Toutes les compétences</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="copy">© 2026 Rayan SAOUD · Portfolio BUT R&amp;T S4</div>
+    <div class="foot-links"><a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

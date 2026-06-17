@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiches SAÉ — Portfolio Rayan SAOUD</title>
+<meta name="description" content="Bilan d'une SAÉ : fiche de suivi, journal de bord et fiche synthèse — SAÉ gestion bancaire microservices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .fiche { border:1px solid var(--line); border-radius:var(--radius); background:var(--bg-elev); padding:28px; margin-bottom:24px; }
+  .fiche-tag { font-family:var(--mono); font-size:0.74rem; color:var(--accent); border:1px solid rgba(77,212,172,.3); background:rgba(77,212,172,.08); border-radius:4px; padding:2px 9px; display:inline-block; margin-bottom:14px; }
+  .fiche h2 { font-size:1.25rem; font-weight:700; margin-bottom:4px; }
+  .fiche .when { font-family:var(--mono); font-size:0.8rem; color:var(--text-faint); margin-bottom:20px; }
+  .frow { display:grid; grid-template-columns:200px 1fr; gap:2px; border-top:1px solid var(--line-soft); padding:12px 0; }
+  .frow:last-child { border-bottom:1px solid var(--line-soft); }
+  .frow .fk { font-family:var(--mono); font-size:0.82rem; color:var(--accent-2); }
+  .frow .fv { color:var(--text-dim); font-size:0.93rem; }
+  .frow .fv strong { color:var(--text); font-weight:600; }
+  .frow .fv ul { list-style:none; margin:0; }
+  .frow .fv ul li { position:relative; padding-left:18px; margin-bottom:5px; }
+  .frow .fv ul li::before { content:"▹"; position:absolute; left:0; color:var(--accent); }
+  /* journal table */
+  .jtable { border:1px solid var(--line); border-radius:var(--radius-sm); overflow:hidden; }
+  .jday { border-bottom:1px solid var(--line); padding:16px 18px; }
+  .jday:last-child { border-bottom:none; }
+  .jday .jd { font-family:var(--mono); font-size:0.8rem; color:var(--accent); margin-bottom:8px; }
+  .jday .jl { margin-bottom:6px; font-size:0.9rem; color:var(--text-dim); }
+  .jday .jl b { color:var(--text); font-weight:600; font-family:var(--mono); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; display:block; margin-bottom:2px; color:var(--text-faint); }
+  @media (max-width:680px){ .frow { grid-template-columns:1fr; gap:4px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>rayan@devcloud:~$</a>
+    <button class="nav-toggle" aria-label="Menu">≡</button>
+    <div class="nav-links">
+      <a href="administrer.html">Administrer</a>
+      <a href="connecter.html">Connecter</a>
+      <a href="programmer.html">Programmer</a>
+      <a href="orchestrer.html">Orchestrer</a>
+      <a href="developper.html">Développer</a>
+      <a href="../index.html#cv">CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="comp-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="../index.html">~</a> / fiches saé</div>
+    <div class="verb-big">BILAN D'UNE SAÉ · démarche portfolio</div>
+    <h1>Fiches SAÉ — gestion bancaire microservices</h1>
+    <p class="lead">Documentation d'une SAÉ à ses trois temps, selon la méthode vue en cours : une fiche de suivi (avant), un journal de bord (pendant) et une fiche synthèse (après).</p>
+    <div class="hero-cta" style="margin-top:24px">
+      <a href="../assets/cv/Fiches_SAE_RayanSAOUD.pdf" download class="btn">↓ Télécharger les 3 fiches (PDF)</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- FICHE 1 -->
+  <section class="subsection reveal">
+    <div class="fiche">
+      <span class="fiche-tag">FICHE 1 · AVANT</span>
+      <h2>Fiche de suivi de la SAÉ</h2>
+      <div class="when">Préparée au démarrage du projet pour cadrer le travail</div>
+      <div class="frow"><div class="fk">Nom de la SAÉ</div><div class="fv">SAÉ 4.DevCloud.01 — Application de gestion bancaire en microservices</div></div>
+      <div class="frow"><div class="fk">Objectifs</div><div class="fv">Concevoir une interface de gestion bancaire en architecture microservices : l'interface web n'accède qu'à des API qui gèrent l'authentification, les opérations clients (retrait, dépôt, virement), la validation par un agent et la journalisation des opérations.</div></div>
+      <div class="frow"><div class="fk">Durée et échéances</div><div class="fv">2 semaines — du 16 au 25 juin 2026. Jalon de dépôt du diagramme de Gantt sur Moodle, puis développement, intégration et soutenance bilan.</div></div>
+      <div class="frow"><div class="fk">Technologies</div><div class="fv">Python, JWT, bcrypt, API REST, service de messagerie pour les logs, base de données, Docker Compose, Git.</div></div>
+      <div class="frow"><div class="fk">Compétences développées</div><div class="fv"><ul><li><strong>Développer</strong> — concevoir une architecture microservices et exposer des API sécurisées.</li><li><strong>Orchestrer</strong> — conteneuriser et déployer les services avec Docker Compose.</li></ul></div></div>
+      <div class="frow"><div class="fk">Plan d'action</div><div class="fv"><ul><li>Cadrage et découpage en microservices, mise en place du dépôt Git.</li><li>Ma partie : auth-service (login, bcrypt, JWT), middleware de contrôle d'accès par rôles, service de logs, Docker Compose et réseau des conteneurs.</li><li>Partie de mon binôme : schéma BDD, account-service, opérations, validation, frontends client et agent.</li><li>Intégration, tests bout-en-bout, rapports individuels et présentation bilan.</li></ul></div></div>
+    </div>
+  </section>
+
+  <!-- FICHE 2 -->
+  <section class="subsection reveal">
+    <div class="fiche">
+      <span class="fiche-tag">FICHE 2 · PENDANT</span>
+      <h2>Journal de bord</h2>
+      <div class="when">Mes traces de travail au fil des deux semaines</div>
+      <div class="jtable">
+        <div class="jday">
+          <div class="jd">16–17 juin · cadrage</div>
+          <div class="jl"><b>Tâches réalisées</b>Avec Tom, on a commencé par poser à plat les fonctionnalités attendues et découper l'appli en services. On a fait le diagramme de Gantt ensemble et je l'ai déposé sur Moodle, puis on a initialisé le dépôt Git et la structure des dossiers.</div>
+          <div class="jl"><b>Difficultés / solutions</b>Au début je voyais mal où s'arrêtait l'auth et où commençait la gestion des comptes. On a perdu un peu de temps là-dessus. Ce qui nous a débloqués : écrire noir sur blanc le rôle de chaque service avant de toucher au code, comme un mini contrat d'API.</div>
+        </div>
+        <div class="jday">
+          <div class="jd">18–19 juin · authentification</div>
+          <div class="jl"><b>Tâches réalisées</b>J'ai attaqué l'auth-service : la route de login, le hachage des mots de passe avec bcrypt, et la génération des jetons JWT à la connexion.</div>
+          <div class="jl"><b>Difficultés / solutions</b>Je me suis pris la tête sur la vérification du token : au départ je refaisais le contrôle dans chaque route, c'était lourd et ça se répétait partout. J'ai fini par sortir toute la vérif du JWT dans un middleware que les autres services peuvent réutiliser. Beaucoup plus propre.</div>
+        </div>
+        <div class="jday">
+          <div class="jd">20–21 juin · contrôle d'accès</div>
+          <div class="jl"><b>Tâches réalisées</b>J'ai enchaîné sur le middleware de contrôle d'accès par rôle : un client ne doit pas voir ce qu'un agent voit. J'ai limité les accès aux interfaces et aux API selon le profil.</div>
+          <div class="jl"><b>Difficultés / solutions</b>Le piège c'était de bien séparer client et agent sans dupliquer la logique. J'ai mis le rôle directement dans le jeton et je le vérifie au moment des actions sensibles — comme ça la règle est au même endroit.</div>
+        </div>
+        <div class="jday">
+          <div class="jd">22–23 juin · logs &amp; conteneurs</div>
+          <div class="jl"><b>Tâches réalisées</b>J'ai fait le service de logs (chaque API publie ses logs, un service les récupère et les stocke), puis je me suis occupé du Docker Compose et du réseau entre les conteneurs.</div>
+          <div class="jl"><b>Difficultés / solutions</b>Faire se parler les conteneurs m'a demandé pas mal d'essais — au début un service n'arrivait pas à en joindre un autre. En passant par un réseau Docker dédié et en faisant transiter les logs par la messagerie, chaque service est resté indépendant et ça a fini par tourner.</div>
+        </div>
+        <div class="jday">
+          <div class="jd">24–25 juin · intégration &amp; bilan</div>
+          <div class="jl"><b>Tâches réalisées</b>On a tout assemblé avec Tom et testé le parcours complet. J'ai rédigé mon rapport individuel et on a préparé la présentation bilan.</div>
+          <div class="jl"><b>Difficultés / solutions</b>Le truc qui coinçait, c'était de suivre une opération « en attente de validation » qui passe d'un service à l'autre sans se perdre. On l'a déroulé de bout en bout, du client jusqu'à la validation par l'agent, jusqu'à ce que le parcours soit bon.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FICHE 3 -->
+  <section class="subsection reveal">
+    <div class="fiche">
+      <span class="fiche-tag">FICHE 3 · APRÈS</span>
+      <h2>Fiche synthèse pour le portfolio</h2>
+      <div class="when">Version valorisante du projet — celle qui rejoint le portfolio</div>
+      <div class="frow"><div class="fk">Titre</div><div class="fv">Application de gestion bancaire en microservices</div></div>
+      <div class="frow"><div class="fk">Contexte &amp; objectif</div><div class="fv">Concevoir une application bancaire maintenable et évolutive, découpée en services indépendants plutôt qu'en bloc unique, avec authentification, opérations soumises à validation et journalisation centralisée.</div></div>
+      <div class="frow"><div class="fk">Technologies</div><div class="fv">Python, JWT, bcrypt, API REST, messagerie (logs), base de données, Docker Compose, Git.</div></div>
+      <div class="frow"><div class="fk">Compétences mobilisées</div><div class="fv">Développer (architecture microservices, API sécurisées) et Orchestrer (conteneurisation, déploiement Docker Compose).</div></div>
+      <div class="frow"><div class="fk">Déroulement &amp; méthodologie</div><div class="fv">Projet en binôme sur 2 semaines, planifié au diagramme de Gantt. Répartition claire : authentification / sécurité / infrastructure pour moi, métier / frontend pour mon binôme. Travail incrémental, service par service, puis intégration commune.</div></div>
+      <div class="frow"><div class="fk">Illustrations</div><div class="fv">Diagramme d'architecture des microservices et diagramme de Gantt (voir la page <a href="developper.html">Développer</a>).</div></div>
+      <div class="frow"><div class="fk">Retour d'expérience</div><div class="fv">Ce que je retiens, c'est que le plus dur en microservices ce n'est pas d'écrire le code d'un service, mais de les faire coopérer proprement. Définir le rôle de chaque service avant de coder et découpler la journalisation par la messagerie sont deux réflexes que je garderai pour n'importe quelle architecture distribuée.</div></div>
+      <div class="frow"><div class="fk">Liens</div><div class="fv">Dépôt GitHub de gestion de projet du groupe · page compétence <a href="developper.html">Développer</a>.</div></div>
+    </div>
+  </section>
+
+  <div class="hero-cta reveal" style="margin:8px 0 48px">
+    <a href="developper.html" class="btn btn-primary">← Compétence Développer</a>
+    <a href="../index.html#competences" class="btn">Toutes les compétences</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="copy">© 2026 Rayan SAOUD · Portfolio BUT R&amp;T S4</div>
+    <div class="foot-links"><a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

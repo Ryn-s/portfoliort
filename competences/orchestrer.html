@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orchestrer — Portfolio Rayan SAOUD</title>
+<meta name="description" content="Compétence Coordonner des infrastructures modulaires — BUT R&T 2e année, parcours DevCloud.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>rayan@devcloud:~$</a>
+    <button class="nav-toggle" aria-label="Menu">≡</button>
+    <div class="nav-links">
+      <a href="administrer.html">Administrer</a>
+      <a href="connecter.html">Connecter</a>
+      <a href="programmer.html">Programmer</a>
+      <a href="orchestrer.html" class="active">Orchestrer</a>
+      <a href="developper.html">Développer</a>
+      <a href="../index.html#cv">CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="comp-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="../index.html">~</a> / <a href="../index.html#competences">compétences</a> / orchestrer</div>
+    <div class="verb-big">COMPÉTENCE 04 · Orchestrer · Parcours DevCloud</div>
+    <h1>Coordonner des infrastructures modulaires</h1>
+    <p class="lead">Bâtir le socle cloud : une infrastructure virtualisée et conteneurisée où les services sont modulaires, reproductibles et mutualisés — pensée pour évoluer plutôt que pour être refaite.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="subsection reveal">
+    <h2><span class="marker">01</span> Contexte</h2>
+    <div class="w-grid">
+      <div class="w"><div class="q">Pourquoi</div><div class="a">Mutualiser les ressources et déployer des services de façon reproductible, sans réinstaller manuellement à chaque fois.</div></div>
+      <div class="w"><div class="q">Qui</div><div class="a">SAÉ DevCloud menées en équipe, dans l'UE « Coordonner des infrastructures modulaires ».</div></div>
+      <div class="w"><div class="q">Quoi</div><div class="a">Une infrastructure virtualisée hébergeant des services, puis la conteneurisation pour packager et déployer ces services.</div></div>
+      <div class="w"><div class="q">Où</div><div class="a">Environnements virtualisés et cloud à l'IUT de Colmar.</div></div>
+      <div class="w"><div class="q">Quand</div><div class="a">Semestres 3 et 4 — SAÉ « Mettre en place une infrastructure virtualisée » et « Développer et déployer un microservice ».</div></div>
+      <div class="w"><div class="q">Comment</div><div class="a">Virtualisation, fondamentaux de la conteneurisation, écosystème cloud et déploiement modulaire.</div></div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">02</span> Actions, traces &amp; preuves</h2>
+    <div class="prose">
+      <ul>
+        <li><strong>Infrastructure virtualisée</strong> : mise en place d'un environnement hébergeant des services mutualisés, socle réutilisable plutôt qu'installation jetable.</li>
+        <li><strong>Conteneurisation</strong> : prise en main des fondamentaux (isolation, image, conteneur) pour packager un service et le redéployer à l'identique d'une machine à l'autre.</li>
+        <li><strong>Déploiement modulaire</strong> : organiser une application non pas en bloc monolithique mais en services indépendants déployables séparément — la base directe du projet de microservices.</li>
+        <li><strong>Écosystème cloud</strong> : comprendre comment les briques (réseau, stockage, calcul) s'assemblent pour offrir un service mutualisé et élastique.</li>
+      </ul>
+      <p>Cette compétence est le pont entre l'<a href="administrer.html">administration réseau</a> (le socle) et le <a href="developper.html">développement d'applications</a> (ce qui tourne dessus) : orchestrer, c'est faire en sorte que les deux mondes se coordonnent proprement.</p>
+    </div>
+    <div class="evidence">
+      <div class="ev"><div class="t">Infrastructure virtualisée</div><div class="d">SAÉ DevCloud.04 — environnement de services mutualisés.</div></div>
+      <div class="ev"><div class="t">Déploiement conteneurisé</div><div class="d">Application microservices orchestrée avec Docker Compose dans un environnement virtualisé (SAÉ 4.DevCloud.01).</div></div>
+    </div>
+    <figure style="margin:24px 0 0">
+      <img src="../assets/img/archi-microservices.svg" alt="Architecture microservices conteneurisée" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
+      <figcaption style="font-family:var(--mono);font-size:0.78rem;color:var(--text-faint);margin-top:10px;text-align:center">Services conteneurisés orchestrés ensemble via Docker Compose — partie infrastructure dont je me suis chargé.</figcaption>
+    </figure>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">03</span> SAÉ rattachées</h2>
+    <div class="proj-grid">
+      <div class="proj">
+        <div class="head"><h3>Mettre en place une infrastructure virtualisée</h3><span class="badge">SAÉ DevCloud.04</span></div>
+        <p>Construction d'une infrastructure virtualisée hébergeant des services mutualisés — le socle de la démarche cloud.</p>
+        <div class="tags"><span class="tag">Virtualisation</span><span class="tag">Cloud</span><span class="tag">Services mutualisés</span></div>
+      </div>
+      <div class="proj">
+        <div class="head"><h3>Déployer un microservice virtualisé</h3><span class="badge">SAÉ 4.DevCloud.01</span></div>
+        <p>Déploiement d'une application en microservices dans un environnement virtualisé/conteneurisé.</p>
+        <div class="tags"><span class="tag">Conteneurs</span><span class="tag">Déploiement</span><span class="tag">Microservices</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">04</span> Lien avec le référentiel</h2>
+    <div class="ref-tree">
+      <svg class="svg-tree" viewBox="0 0 760 300" role="img" aria-label="Arbre de la compétence Orchestrer">
+        <path class="edge" d="M380,58 L150,150"/>
+        <path class="edge" d="M380,58 L380,150"/>
+        <path class="edge" d="M380,58 L610,150"/>
+        <rect class="node-comp" x="300" y="26" width="160" height="40" rx="8"/>
+        <text class="node-comp-label" x="380" y="51" text-anchor="middle">Orchestrer</text>
+        <g>
+          <rect class="node-ac" x="70" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="150" y="172" text-anchor="middle">Mettre en place</text>
+          <text class="node-ac-label" x="150" y="187" text-anchor="middle">une infrastructure</text>
+          <text class="node-ac-label" x="150" y="202" text-anchor="middle">virtualisée</text>
+          <text class="chk" x="150" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="300" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="380" y="172" text-anchor="middle">Maîtriser les</text>
+          <text class="node-ac-label" x="380" y="187" text-anchor="middle">fondamentaux de la</text>
+          <text class="node-ac-label" x="380" y="202" text-anchor="middle">conteneurisation</text>
+          <text class="chk" x="380" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="530" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="610" y="172" text-anchor="middle">Déployer des</text>
+          <text class="node-ac-label" x="610" y="187" text-anchor="middle">services modulaires</text>
+          <text class="node-ac-label" x="610" y="202" text-anchor="middle">&amp; reproductibles</text>
+          <text class="chk" x="610" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+      </svg>
+      <div class="ref-caption">Composantes essentielles — virtualisation &amp; orchestration modulaire</div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <div class="reflex">
+      <h3>Réflexivité</h3>
+      <div class="q-list">
+        <div class="qa"><div class="q">Quelle difficulté ai-je rencontrée ?</div><div class="a">Passer d'une logique « une machine = un service installé à la main » à une logique modulaire et reproductible demande de changer de réflexe. Au début, je configurais encore les choses « à la main », ce qui rendait tout difficile à reproduire ailleurs.</div></div>
+        <div class="qa"><div class="q">Comment l'ai-je dépassée ?</div><div class="a">En m'appuyant sur ce que j'avais appris sur OnionRouter — où le README permettait de réinstaller le projet pas à pas — j'ai pris l'habitude de penser « déploiement reproductible » dès le départ : packager le service plutôt que le bricoler sur place.</div></div>
+        <div class="qa"><div class="q">Qu'ai-je proposé ou décidé ?</div><div class="a">Concevoir l'infrastructure comme un socle réutilisable, sur lequel on peut poser plusieurs services, plutôt qu'une installation dédiée à un seul usage. Cette modularité est ce qui a permis d'enchaîner ensuite sur le déploiement de microservices.</div></div>
+        <div class="qa"><div class="q">En quoi est-ce généralisable ?</div><div class="a">La reproductibilité et la modularité sont au cœur des pratiques DevOps actuelles. Savoir construire un socle sur lequel les services se déploient proprement est directement transférable au monde professionnel du cloud et de l'exploitation d'infrastructures.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-cta reveal" style="margin:8px 0 48px">
+    <a href="developper.html" class="btn btn-primary">Compétence suivante : Développer →</a>
+    <a href="../index.html#competences" class="btn">← Toutes les compétences</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="copy">© 2026 Rayan SAOUD · Portfolio BUT R&amp;T S4</div>
+    <div class="foot-links"><a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

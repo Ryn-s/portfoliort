@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administrer — Portfolio Rayan SAOUD</title>
+<meta name="description" content="Compétence Administrer les réseaux et l'Internet — BUT R&T 2e année.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>rayan@devcloud:~$</a>
+    <button class="nav-toggle" aria-label="Menu">≡</button>
+    <div class="nav-links">
+      <a href="administrer.html" class="active">Administrer</a>
+      <a href="connecter.html">Connecter</a>
+      <a href="programmer.html">Programmer</a>
+      <a href="orchestrer.html">Orchestrer</a>
+      <a href="developper.html">Développer</a>
+      <a href="../index.html#cv">CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="comp-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="../index.html">~</a> / <a href="../index.html#competences">compétences</a> / administrer</div>
+    <div class="verb-big">COMPÉTENCE 01 · Administrer · Niveau 2</div>
+    <h1>Administrer les réseaux et l'Internet</h1>
+    <p class="lead">Rendre un réseau d'entreprise opérationnel et fiable : concevoir un LAN hiérarchique, l'adresser proprement, puis déployer et sécuriser les services qui le font vivre.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- CONTEXTE -->
+  <section class="subsection reveal">
+    <h2><span class="marker">01</span> Contexte</h2>
+    <div class="w-grid">
+      <div class="w"><div class="q">Pourquoi</div><div class="a">Rendre opérationnelles les infrastructures de deux entreprises e-commerce et garantir la continuité de service.</div></div>
+      <div class="w"><div class="q">Qui</div><div class="a">SAÉ menée en groupe de 3. Ma responsabilité : la mise en œuvre des services réseau.</div></div>
+      <div class="w"><div class="q">Quoi</div><div class="a">Un LAN commuté hiérarchique, adressé, redondé, et la pile de services : DNS, Web, mail, annuaire.</div></div>
+      <div class="w"><div class="q">Où</div><div class="a">Maquette virtualisée sous EVE-NG et serveurs Linux/Windows Server, à l'IUT de Colmar.</div></div>
+      <div class="w"><div class="q">Quand</div><div class="a">Semestre 3 — SAÉ « Concevoir un réseau informatique multi-sites ».</div></div>
+      <div class="w"><div class="q">Comment</div><div class="a">Découpage en VLAN par service, MST, routage inter-VLAN, VRRP pour la haute disponibilité, PAT vers l'extérieur.</div></div>
+    </div>
+  </section>
+
+  <!-- ACTIONS / PREUVES -->
+  <section class="subsection reveal">
+    <h2><span class="marker">02</span> Actions, traces &amp; preuves</h2>
+    <div class="prose">
+      <p>Sur la partie qui m'a été confiée, j'ai mis en œuvre l'ensemble des <strong>services réseau</strong> de l'entreprise, en ligne de commande uniquement (l'absence de gestionnaire graphique faisait partie du cahier des charges) :</p>
+      <h3>Côté architecture LAN (travail collectif)</h3>
+      <ul>
+        <li>Conception d'une <strong>architecture commutée hiérarchique</strong> avec liens redondants, pensée pour rester disponible en cas de panne matérielle.</li>
+        <li>Création des <strong>VLAN par service</strong> respectant le plan d'adressage global, activation de <strong>MST</strong> (Multiple Spanning Tree) et du <strong>routage inter-VLAN</strong>.</li>
+        <li><strong>Haute disponibilité</strong> via <strong>VRRP</strong> (mode actif/passif) et sortie vers l'extérieur en <strong>NAT/PAT</strong>.</li>
+      </ul>
+      <h3>Côté services réseau (ma partie)</h3>
+      <ul>
+        <li><strong>DNS</strong> : serveur primaire sous Windows Server 2019 et secondaire sous Linux, transfert de zone <strong>chiffré avec DNSSEC</strong>, filtrage pour n'autoriser que le trafic DNS sur le serveur.</li>
+        <li><strong>Web</strong> : serveur Apache hébergeant deux sites (un intranet réservé aux clients, un public), avec ouverture maîtrisée du trafic HTTP.</li>
+        <li><strong>Mail</strong> : service SMTP + IMAP, comptes admin et client, testés au protocole en se connectant via Telnet et commandes SMTP.</li>
+        <li><strong>Annuaire</strong> : déploiement d'<strong>Active Directory</strong> sur le serveur Windows et validation par l'ajout d'un utilisateur connecté depuis un poste du domaine.</li>
+      </ul>
+    </div>
+    <div class="evidence">
+      <div class="ev"><div class="t">Maquette EVE-NG &amp; rapport de SAÉ</div><div class="d">Plan d'adressage argumenté, configurations des équipements clés et captures de tests commentées.</div></div>
+      <div class="ev"><div class="t">Tests de validation</div><div class="d">Vérification du filtrage SSH par masque réseau, du transfert de zone DNSSEC et de la résolution intranet/public.</div></div>
+    </div>
+    <figure style="margin:24px 0 0">
+      <img src="../assets/img/topologie-multisite.svg" alt="Topologie du réseau multi-sites" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
+      <figcaption style="font-family:var(--mono);font-size:0.78rem;color:var(--text-faint);margin-top:10px;text-align:center">Architecture du réseau multi-sites — LAN, services et interconnexion.</figcaption>
+    </figure>
+    <figure style="margin:24px 0 0">
+      <img src="../assets/img/firewall-raspberry.svg" alt="Pare-feu sur Raspberry Pi" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
+      <figcaption style="font-family:var(--mono);font-size:0.78rem;color:var(--text-faint);margin-top:10px;text-align:center">Projet personnel — pare-feu Raspberry Pi (iptables/nftables, OpenVPN), illustrant l'administration sécurisée.</figcaption>
+    </figure>
+
+    <h3 style="margin-top:32px">Captures réelles du labo</h3>
+    <div class="captures">
+      <figure class="capture">
+        <img src="../assets/img/captures/dns-zone-nano.png" alt="Fichier de zone DNS db.ucexchange.com édité sous nano">
+        <figcaption><strong>Fichier de zone DNS</strong>Configuration de <code>/etc/bind/db.ucexchange.com</code> : SOA, NS, MX et enregistrements A pour le domaine ucexchange.com.<span class="badge-real">capture réelle · QEMU/Debian</span></figcaption>
+      </figure>
+      <figure class="capture">
+        <img src="../assets/img/captures/dnssec-nsec3.png" alt="Enregistrements DNSSEC NSEC3 et RRSIG">
+        <figcaption><strong>DNSSEC — signature de zone</strong>Enregistrements NSEC3 et RRSIG générés : le transfert de zone est chiffré et authentifié.<span class="badge-real">capture réelle · DNSSEC</span></figcaption>
+      </figure>
+      <figure class="capture">
+        <img src="../assets/img/captures/ss-services.png" alt="Sortie de ss -tulpn montrant les services en écoute">
+        <figcaption><strong>Services en écoute</strong><code>ss -tulpn</code> : named (DNS:53), dovecot (IMAP:143, POP:110), apache2 (HTTP:80) et master (SMTP:25) actifs sur le serveur.<span class="badge-real">capture réelle</span></figcaption>
+      </figure>
+      <figure class="capture">
+        <img src="../assets/img/captures/iptables-rules.png" alt="Règles iptables affichées">
+        <figcaption><strong>Filtrage iptables</strong>Règles INPUT : SSH limité au 10.242.10.0/24, ouverture maîtrisée des ports 53/80/25/143/110, et reject tcp-reset sur le SSH non autorisé.<span class="badge-real">capture réelle</span></figcaption>
+      </figure>
+      <figure class="capture">
+        <img src="../assets/img/captures/qemu-linux-windows.png" alt="Linux Debian et Windows Server 2019 côte à côte dans QEMU">
+        <figcaption><strong>Infrastructure mixte</strong>Serveur Linux Debian (services) et Windows Server 2019 (DNS primaire / Active Directory) tournant en parallèle sous QEMU.<span class="badge-real">capture réelle</span></figcaption>
+      </figure>
+      <figure class="capture">
+        <img src="../assets/img/captures/dns-zone-ping.png" alt="Zone DNS et test de ping">
+        <figcaption><strong>Test de résolution</strong>Vérification de la zone et test de connectivité depuis le serveur de noms.<span class="badge-real">capture réelle</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SAE -->
+  <section class="subsection reveal">
+    <h2><span class="marker">03</span> SAÉ rattachée</h2>
+    <div class="proj">
+      <div class="head"><h3>SAÉ — Concevoir un réseau informatique multi-sites</h3><span class="badge">S3 · groupe de 3</span></div>
+      <p>Deux entreprises (UC Exchange, ABC Conseil) sur Strasbourg, Nancy et Metz. Le projet se décompose en trois parties : administration des LAN, mise en œuvre des services réseau (ma partie), et interconnexion opérateur — cette dernière est détaillée dans la compétence <a href="connecter.html">Connecter</a>.</p>
+      <div class="tags"><span class="tag">EVE-NG</span><span class="tag">Windows Server 2019</span><span class="tag">Linux CLI</span><span class="tag">DNSSEC</span><span class="tag">Apache</span><span class="tag">Active Directory</span></div>
+    </div>
+  </section>
+
+  <!-- REFERENTIEL -->
+  <section class="subsection reveal">
+    <h2><span class="marker">04</span> Lien avec le référentiel</h2>
+    <p class="prose" style="color:var(--text-dim)">L'unité d'évaluation n'est pas l'apprentissage critique (AC) lui-même, mais l'indicateur qui permet de valider tout ou partie d'un AC, jusqu'à remonter à la compétence globale.</p>
+    <div class="ref-tree">
+      <svg class="svg-tree" viewBox="0 0 760 300" role="img" aria-label="Arbre de la compétence Administrer">
+        <!-- edges -->
+        <path class="edge" d="M380,58 L120,150"/>
+        <path class="edge" d="M380,58 L300,150"/>
+        <path class="edge" d="M380,58 L470,150"/>
+        <path class="edge" d="M380,58 L650,150"/>
+        <!-- comp node -->
+        <rect class="node-comp" x="300" y="26" width="160" height="40" rx="8"/>
+        <text class="node-comp-label" x="380" y="51" text-anchor="middle">Administrer</text>
+        <!-- AC nodes -->
+        <g>
+          <rect class="node-ac" x="40" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="120" y="172" text-anchor="middle">Concevoir un</text>
+          <text class="node-ac-label" x="120" y="187" text-anchor="middle">réseau LAN</text>
+          <text class="node-ac-label" x="120" y="202" text-anchor="middle">hiérarchique</text>
+          <text class="chk" x="120" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="220" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="300" y="172" text-anchor="middle">Déployer les</text>
+          <text class="node-ac-label" x="300" y="187" text-anchor="middle">services réseau</text>
+          <text class="node-ac-label" x="300" y="202" text-anchor="middle">(DNS/Web/Mail)</text>
+          <text class="chk" x="300" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="400" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="480" y="172" text-anchor="middle">Assurer la haute</text>
+          <text class="node-ac-label" x="480" y="187" text-anchor="middle">disponibilité</text>
+          <text class="node-ac-label" x="480" y="202" text-anchor="middle">(VRRP)</text>
+          <text class="chk" x="480" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="580" y="150" width="150" height="74" rx="7"/>
+          <text class="node-ac-label" x="655" y="172" text-anchor="middle">Sécuriser les</text>
+          <text class="node-ac-label" x="655" y="187" text-anchor="middle">annuaires</text>
+          <text class="node-ac-label" x="655" y="202" text-anchor="middle">(AD)</text>
+          <text class="chk" x="655" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+      </svg>
+      <div class="ref-caption">Composantes essentielles mises en œuvre dans la SAÉ multi-sites</div>
+    </div>
+  </section>
+
+  <!-- REFLEXIVITE -->
+  <section class="subsection reveal">
+    <div class="reflex">
+      <h3>Réflexivité</h3>
+      <div class="q-list">
+        <div class="qa"><div class="q">Quelle difficulté ai-je rencontrée ?</div><div class="a">Le travail intégral en ligne de commande, sans interface graphique, m'a d'abord ralenti : une faute de syntaxe dans un fichier de zone DNS faisait échouer tout le service sans message clair. J'ai dû apprendre à lire les journaux et à tester service par service plutôt que de tout lancer d'un coup.</div></div>
+        <div class="qa"><div class="q">Comment l'ai-je dépassée ?</div><div class="a">J'ai adopté une méthode incrémentale : valider chaque brique isolément (DNS, puis Web, puis mail) avant de la connecter aux autres, et tester au protocole — par exemple parler en SMTP via Telnet pour vérifier le mail sans dépendre d'un client. Cette discipline du « petit pas vérifié » a transformé ma façon de déboguer.</div></div>
+        <div class="qa"><div class="q">Qu'ai-je proposé ou décidé ?</div><div class="a">Pour le transfert de zone, j'ai mis en place DNSSEC afin de chiffrer les échanges entre primaire et secondaire, et un filtrage qui n'autorise le SSH que depuis les machines du même masque réseau — en renvoyant un TCP reset aux autres pour brouiller les scans de ports.</div></div>
+        <div class="qa"><div class="q">En quoi est-ce généralisable ?</div><div class="a">Concevoir des services avec le moindre privilège (n'ouvrir que le trafic nécessaire), valider de façon incrémentale et chiffrer les échanges internes sont des réflexes que je réutilise sur n'importe quelle infrastructure — c'est exactement ce que j'irai appliquer pendant mon stage d'administrateur réseau.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-cta reveal" style="margin:8px 0 48px">
+    <a href="connecter.html" class="btn btn-primary">Compétence suivante : Connecter →</a>
+    <a href="../index.html#competences" class="btn">← Toutes les compétences</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="copy">© 2026 Rayan SAOUD · Portfolio BUT R&amp;T S4</div>
+    <div class="foot-links"><a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

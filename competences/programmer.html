@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programmer — Portfolio Rayan SAOUD</title>
+<meta name="description" content="Compétence Créer des outils et applications pour les R&T — BUT R&T 2e année.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>rayan@devcloud:~$</a>
+    <button class="nav-toggle" aria-label="Menu">≡</button>
+    <div class="nav-links">
+      <a href="administrer.html">Administrer</a>
+      <a href="connecter.html">Connecter</a>
+      <a href="programmer.html" class="active">Programmer</a>
+      <a href="orchestrer.html">Orchestrer</a>
+      <a href="developper.html">Développer</a>
+      <a href="../index.html#cv">CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="comp-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="../index.html">~</a> / <a href="../index.html#competences">compétences</a> / programmer</div>
+    <div class="verb-big">COMPÉTENCE 03 · Programmer · Niveau 2</div>
+    <h1>Créer des outils et applications pour les R&amp;T</h1>
+    <p class="lead">Développer un outil réseau complet de A à Z : un système de routage en oignon où chaque message traverse plusieurs routeurs, protégé par un chiffrement RSA que j'ai codé à la main.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="subsection reveal">
+    <h2><span class="marker">01</span> Contexte</h2>
+    <div class="w-grid">
+      <div class="w"><div class="q">Pourquoi</div><div class="a">Comprendre en profondeur l'anonymat réseau et la cryptographie en les reconstruisant, plutôt qu'en les consommant comme une boîte noire.</div></div>
+      <div class="w"><div class="q">Qui</div><div class="a">Projet en binôme (« RayAnit »), dans le cadre de la SAÉ 3.02 et de la ressource programmation.</div></div>
+      <div class="w"><div class="q">Quoi</div><div class="a">OnionRouter : deux clients communiquent anonymement à travers un réseau de routeurs virtuels, message chiffré en couches.</div></div>
+      <div class="w"><div class="q">Où</div><div class="a">Architecture distribuée sur plusieurs machines/VM (client Windows, routeurs Linux, master).</div></div>
+      <div class="w"><div class="q">Quand</div><div class="a">Semestre 3 — SAÉ « Développer des applications communicantes ».</div></div>
+      <div class="w"><div class="q">Comment</div><div class="a">Python, RSA implémenté manuellement, protocole réseau maison, supervision PyQt5 et base MariaDB.</div></div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">02</span> Actions, traces &amp; preuves</h2>
+    <div class="prose">
+      <p>Le cahier des charges interdisait toute librairie de cryptographie externe : tout a dû être reconstruit mathématiquement.</p>
+      <ul>
+        <li><strong>RSA « maison »</strong> : génération des clés (calcul de p, q, n, e, d), chiffrement et déchiffrement modulaires (c = mᵉ mod n), avec un algorithme de <strong>découpage par blocs (chunking)</strong> pour dépasser la limite de taille du RSA standard.</li>
+        <li><strong>Routage en oignon</strong> : le message est encapsulé dans plusieurs couches de chiffrement, pelées une à une par les nœuds intermédiaires — chaque routeur ne connaît que le suivant.</li>
+        <li><strong>Architecture distribuée</strong> séparant strictement le <strong>client</strong> (interface utilisateur), les <strong>routeurs</strong> (transport) et le <strong>master</strong> (annuaire + base de données).</li>
+        <li><strong>Interface de supervision</strong> en PyQt5 : visualisation de la topologie en temps réel, état actif/inactif des routeurs et tableau des logs.</li>
+        <li><strong>Automatisation</strong> : un script Bash lance automatiquement plusieurs routeurs dans des terminaux séparés, et un serveur de test simule le destinataire final.</li>
+      </ul>
+      <p>Le code est organisé proprement (modules <code>common</code>, <code>master</code>, <code>router</code>, <code>client</code>), documenté dans un README détaillé avec guide d'installation, section dépannage et journal de bord versionné.</p>
+    </div>
+    <div class="evidence">
+      <div class="ev"><div class="t">Dépôt GitHub</div><div class="d">Code source complet, README d'installation et journal de bord.</div><a href="https://github.com/Ryn-s/Onion_Router" target="_blank" rel="noopener">github.com/Ryn-s/Onion_Router ↗</a></div>
+      <div class="ev"><div class="t">Démonstration vidéo</div><div class="d">Présentation du système en fonctionnement.</div><a href="https://youtu.be/nkGbUICb_v0" target="_blank" rel="noopener">Voir la démo ↗</a></div>
+    </div>
+    <figure style="margin:24px 0 0">
+      <img src="../assets/img/archi-onionrouter.svg" alt="Architecture OnionRouter : chiffrement en couches à travers plusieurs routeurs" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
+      <figcaption style="font-family:var(--mono);font-size:0.78rem;color:var(--text-faint);margin-top:10px;text-align:center">Architecture du système — message chiffré en couches, master/annuaire et supervision. Captures de la GUI à ajouter.</figcaption>
+    </figure>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">03</span> Projet rattaché</h2>
+    <div class="proj">
+      <div class="head"><h3>OnionRouter — routage en oignon</h3><span class="badge">SAÉ 3.02 · binôme</span></div>
+      <p>Communication anonyme par chiffrement en couches sur un réseau de routeurs virtuels. 98,7 % Python, RSA reconstruit à la main, supervision graphique et base de données.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">RSA</span><span class="tag">PyQt5</span><span class="tag">MariaDB</span><span class="tag">Sockets</span><span class="tag">Bash</span></div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">04</span> Lien avec le référentiel</h2>
+    <div class="ref-tree">
+      <svg class="svg-tree" viewBox="0 0 760 300" role="img" aria-label="Arbre de la compétence Programmer">
+        <path class="edge" d="M380,58 L130,150"/>
+        <path class="edge" d="M380,58 L310,150"/>
+        <path class="edge" d="M380,58 L490,150"/>
+        <path class="edge" d="M380,58 L660,150"/>
+        <rect class="node-comp" x="300" y="26" width="160" height="40" rx="8"/>
+        <text class="node-comp-label" x="380" y="51" text-anchor="middle">Programmer</text>
+        <g>
+          <rect class="node-ac" x="50" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="130" y="172" text-anchor="middle">Développer une</text>
+          <text class="node-ac-label" x="130" y="187" text-anchor="middle">application à partir</text>
+          <text class="node-ac-label" x="130" y="202" text-anchor="middle">d'un cahier des charges</text>
+          <text class="chk" x="130" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="230" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="310" y="172" text-anchor="middle">Programmer un</text>
+          <text class="node-ac-label" x="310" y="187" text-anchor="middle">protocole réseau</text>
+          <text class="node-ac-label" x="310" y="202" text-anchor="middle">client/serveur</text>
+          <text class="chk" x="310" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="410" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="490" y="172" text-anchor="middle">Manipuler une</text>
+          <text class="node-ac-label" x="490" y="187" text-anchor="middle">base de données</text>
+          <text class="node-ac-label" x="490" y="202" text-anchor="middle">(annuaire/logs)</text>
+          <text class="chk" x="490" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="590" y="150" width="150" height="74" rx="7"/>
+          <text class="node-ac-label" x="665" y="172" text-anchor="middle">Concevoir une</text>
+          <text class="node-ac-label" x="665" y="187" text-anchor="middle">interface (GUI)</text>
+          <text class="node-ac-label" x="665" y="202" text-anchor="middle">de supervision</text>
+          <text class="chk" x="665" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+      </svg>
+      <div class="ref-caption">Composantes essentielles mises en œuvre dans OnionRouter</div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <div class="reflex">
+      <h3>Réflexivité</h3>
+      <div class="q-list">
+        <div class="qa"><div class="q">Quelle difficulté ai-je rencontrée ?</div><div class="a">Le RSA standard ne peut chiffrer qu'un message plus petit que la clé. Dès qu'on envoyait une vraie phrase, le chiffrement échouait. Comprendre <em>pourquoi</em> — et pas seulement contourner — m'a demandé de revenir aux maths derrière l'algorithme.</div></div>
+        <div class="qa"><div class="q">Comment l'ai-je dépassée ?</div><div class="a">J'ai conçu un algorithme de découpage en blocs : le message est segmenté, chaque bloc est chiffré séparément, puis reformaté avec un protocole maison pour être reconstitué à l'arrivée. Le fait d'avoir codé RSA moi-même, sans librairie, m'a justement donné la maîtrise nécessaire pour intervenir à ce niveau.</div></div>
+        <div class="qa"><div class="q">Qu'ai-je proposé ou décidé ?</div><div class="a">J'ai poussé pour une séparation stricte client / routeurs / master, et pour une interface de supervision. Ce n'était pas obligatoire, mais ça rend le système observable : on <em>voit</em> la topologie et les logs, ce qui a énormément aidé au débogage et rend le projet présentable.</div></div>
+        <div class="qa"><div class="q">En quoi est-ce généralisable ?</div><div class="a">Découper un problème trop gros en unités traitables, soigner l'observabilité d'un système distribué, et documenter pour qu'un tiers puisse réinstaller le projet : ce sont des réflexes de développeur que je réutilise directement dans mes applications en microservices (compétence <a href="developper.html">Développer</a>).</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-cta reveal" style="margin:8px 0 48px">
+    <a href="orchestrer.html" class="btn btn-primary">Compétence suivante : Orchestrer →</a>
+    <a href="../index.html#competences" class="btn">← Toutes les compétences</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="copy">© 2026 Rayan SAOUD · Portfolio BUT R&amp;T S4</div>
+    <div class="foot-links"><a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

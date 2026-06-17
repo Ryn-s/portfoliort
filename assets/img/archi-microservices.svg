@@ -1,0 +1,91 @@
+<svg viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture microservices de l'application bancaire : frontend, API gateway, services auth, comptes, validation et logs" font-family="Inter, sans-serif">
+  <defs>
+    <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .l{ fill:#9aa7b8; font-size:11px; font-family:'JetBrains Mono',monospace; }
+      .w{ fill:#e6edf3; font-size:12px; font-weight:600; }
+      .a{ fill:#4dd4ac; font-size:10px; font-family:'JetBrains Mono',monospace; }
+      .svc{ fill:#161b22; stroke:#283040; stroke-width:1; }
+      .svcme{ fill:#161b22; stroke:#4dd4ac; stroke-width:1.4; }
+      .front{ fill:#1c2330; stroke:#5b9dff; stroke-width:1; }
+      .ln{ stroke:#5d6b7d; stroke-width:1.2; fill:none; }
+      .lnq{ stroke:#f0a868; stroke-width:1.2; fill:none; stroke-dasharray:4 3; }
+    </style>
+  </defs>
+
+  <text x="30" y="28" class="w" font-size="13" fill="#e6edf3">Architecture microservices — Application de gestion bancaire</text>
+  <text x="30" y="44" class="l">L'interface web n'accède qu'à des API · services indépendants · conteneurisés (Docker Compose)</text>
+
+  <!-- Frontends -->
+  <rect x="40" y="80" width="150" height="50" rx="8" class="front"/>
+  <text x="115" y="102" class="w" text-anchor="middle">Frontend client</text>
+  <text x="115" y="119" class="l" text-anchor="middle">comptes · opérations</text>
+
+  <rect x="40" y="150" width="150" height="50" rx="8" class="front"/>
+  <text x="115" y="172" class="w" text-anchor="middle">Frontend agent</text>
+  <text x="115" y="189" class="l" text-anchor="middle">validation · supervision</text>
+
+  <!-- Auth service (mine) -->
+  <rect x="270" y="80" width="160" height="64" rx="8" class="svcme"/>
+  <text x="350" y="102" class="w" text-anchor="middle">auth-service</text>
+  <text x="350" y="119" class="l" text-anchor="middle">login · bcrypt · JWT</text>
+  <text x="350" y="135" class="a" text-anchor="middle">▸ ma partie</text>
+
+  <!-- Middleware (mine) -->
+  <rect x="270" y="162" width="160" height="54" rx="8" class="svcme"/>
+  <text x="350" y="184" class="w" text-anchor="middle">Contrôle d'accès</text>
+  <text x="350" y="201" class="l" text-anchor="middle">middleware · rôles</text>
+
+  <!-- account-service -->
+  <rect x="510" y="80" width="160" height="54" rx="8" class="svc"/>
+  <text x="590" y="102" class="w" text-anchor="middle">account-service</text>
+  <text x="590" y="119" class="l" text-anchor="middle">comptes · soldes</text>
+
+  <!-- operations -->
+  <rect x="510" y="150" width="160" height="54" rx="8" class="svc"/>
+  <text x="590" y="172" class="w" text-anchor="middle">Opérations</text>
+  <text x="590" y="189" class="l" text-anchor="middle">dépôt · retrait · virement</text>
+
+  <!-- validation -->
+  <rect x="510" y="220" width="160" height="54" rx="8" class="svc"/>
+  <text x="590" y="242" class="w" text-anchor="middle">validation-service</text>
+  <text x="590" y="259" class="l" text-anchor="middle">côté agent</text>
+
+  <!-- log service (mine) -->
+  <rect x="270" y="300" width="160" height="64" rx="8" class="svcme"/>
+  <text x="350" y="322" class="w" text-anchor="middle">log-service</text>
+  <text x="350" y="339" class="l" text-anchor="middle">collecte · messagerie · BDD</text>
+  <text x="350" y="355" class="a" text-anchor="middle">▸ ma partie</text>
+
+  <!-- DB -->
+  <rect x="510" y="310" width="160" height="48" rx="8" class="svc"/>
+  <text x="590" y="330" class="w" text-anchor="middle">Base de données</text>
+  <text x="590" y="347" class="l" text-anchor="middle">comptes · logs</text>
+
+  <!-- links front -> auth -->
+  <path d="M190 105 L264 108" class="ln" marker-end="url(#ar2)"/>
+  <path d="M190 175 L264 185" class="ln" marker-end="url(#ar2)"/>
+
+  <!-- auth -> middleware implicit, middleware -> services -->
+  <path d="M430 112 L504 107" class="ln" marker-end="url(#ar2)"/>
+  <path d="M430 189 L504 177" class="ln" marker-end="url(#ar2)"/>
+  <path d="M430 200 L504 240" class="ln" marker-end="url(#ar2)"/>
+
+  <!-- operations -> validation -->
+  <path d="M590 204 L590 216" class="ln" marker-end="url(#ar2)"/>
+
+  <!-- services publish logs (dashed amber) to log-service -->
+  <path d="M510 120 Q450 280 432 318" class="lnq" marker-end="url(#ar2)"/>
+  <path d="M510 177 Q460 300 432 330" class="lnq" marker-end="url(#ar2)"/>
+  <text x="455" y="295" class="l" fill="#f0a868">logs publiés</text>
+
+  <!-- log -> db, services -> db -->
+  <path d="M430 335 L504 334" class="ln" marker-end="url(#ar2)"/>
+  <path d="M590 274 L590 304" class="ln" marker-end="url(#ar2)"/>
+
+  <!-- legend -->
+  <rect x="40" y="395" width="14" height="12" rx="3" class="svcme"/>
+  <text x="62" y="405" class="l">Réalisé par Rayan (auth · sécurité · infra Docker · logs)</text>
+</svg>

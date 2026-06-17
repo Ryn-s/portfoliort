@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Développer — Portfolio Rayan SAOUD</title>
+<meta name="description" content="Compétence Accompagner le développement d'applications — BUT R&T 2e année, parcours DevCloud.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand"><span class="dot"></span>rayan@devcloud:~$</a>
+    <button class="nav-toggle" aria-label="Menu">≡</button>
+    <div class="nav-links">
+      <a href="administrer.html">Administrer</a>
+      <a href="connecter.html">Connecter</a>
+      <a href="programmer.html">Programmer</a>
+      <a href="orchestrer.html">Orchestrer</a>
+      <a href="developper.html" class="active">Développer</a>
+      <a href="../index.html#cv">CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="comp-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="../index.html">~</a> / <a href="../index.html#competences">compétences</a> / développer</div>
+    <div class="verb-big">COMPÉTENCE 05 · Développer · Parcours DevCloud</div>
+    <h1>Accompagner le développement d'applications</h1>
+    <p class="lead">Concevoir une application non comme un bloc unique mais comme un ensemble de services indépendants qui coopèrent : authentification, opérations, validation, journalisation — chacun avec sa responsabilité.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="subsection reveal">
+    <h2><span class="marker">01</span> Contexte</h2>
+    <div class="w-grid">
+      <div class="w"><div class="q">Pourquoi</div><div class="a">Construire une application maintenable et évolutive, où chaque fonction peut être développée, testée et déployée séparément.</div></div>
+      <div class="w"><div class="q">Qui</div><div class="a">SAÉ de fin d'année, avec un rapport individuel détaillant mes réalisations techniques propres.</div></div>
+      <div class="w"><div class="q">Quoi</div><div class="a">Une interface de gestion bancaire en microservices : l'interface web ne fait qu'appeler des API qui gèrent les opérations.</div></div>
+      <div class="w"><div class="q">Où</div><div class="a">Environnement virtualisé, dépôt GitHub de gestion de projet en groupe.</div></div>
+      <div class="w"><div class="q">Quand</div><div class="a">Semestre 4 — SAÉ 4.DevCloud.01, projet de juin.</div></div>
+      <div class="w"><div class="q">Comment</div><div class="a">Découpage en microservices, API, authentification et limitation des accès, journalisation via un service de messagerie.</div></div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">02</span> Actions, traces &amp; preuves</h2>
+    <div class="prose">
+      <p>L'application de gestion bancaire repose entièrement sur une architecture où <strong>l'interface web ne fait qu'accéder à des API</strong>, chaque API portant une responsabilité claire. En binôme (Rayan &amp; Tom), je me suis chargé du pôle <strong>authentification, sécurité et infrastructure</strong> :</p>
+      <ul>
+        <li><strong>auth-service</strong> : authentification des usagers (client et agent) avec hachage des mots de passe par <strong>bcrypt</strong> et jetons <strong>JWT</strong>.</li>
+        <li><strong>Middleware de contrôle d'accès</strong> : limitation des accès aux interfaces et aux API selon le <strong>rôle</strong> (client / agent).</li>
+        <li><strong>Service de logs</strong> : chaque API publie ses logs, un service dédié les collecte via un <strong>service de messagerie</strong> et les stocke en base, avec affichage filtrable par type et par période.</li>
+        <li><strong>Orchestration</strong> : mise en place du <strong>Docker Compose</strong> et du réseau des conteneurs pour faire tourner l'ensemble des services ensemble (lien direct avec la compétence <a href="orchestrer.html">Orchestrer</a>).</li>
+      </ul>
+      <p>Mon binôme a pris en charge le pôle métier et frontend (comptes, opérations dépôt/retrait/virement, validation côté agent, interfaces client et agent).</p>
+      <p>Le projet a démarré par un <strong>diagramme de Gantt</strong> pour planifier les jalons sur deux semaines, et chaque membre a produit un rapport individuel argumentant la validation des apprentissages critiques.</p>
+      <p>Cette compétence prolonge directement <a href="programmer.html">Programmer</a> (le code) et <a href="orchestrer.html">Orchestrer</a> (le déploiement) : ici, l'accent est mis sur l'<strong>architecture</strong> de l'application elle-même.</p>
+    </div>
+    <div class="evidence">
+      <div class="ev"><div class="t">Diagramme de Gantt &amp; rapport individuel</div><div class="d">Planification du projet sur 2 semaines (binôme Rayan &amp; Tom) et argumentaire personnel sur les compétences validées.</div></div>
+      <div class="ev"><div class="t">Dépôt GitHub de groupe</div><div class="d">Gestion de projet et code des microservices, orchestrés avec Docker Compose.</div></div>
+      <div class="ev"><div class="t">Présentation bilan</div><div class="d">Soutenance de groupe de 15-20 minutes en fin de SAÉ.</div></div>
+    </div>
+    <figure style="margin:24px 0 0">
+      <img src="../assets/img/archi-microservices.svg" alt="Architecture microservices de l'application bancaire" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
+      <figcaption style="font-family:var(--mono);font-size:0.78rem;color:var(--text-faint);margin-top:10px;text-align:center">Architecture de l'application — ma contribution : authentification (JWT/bcrypt), contrôle d'accès par rôles, service de logs et orchestration Docker Compose.</figcaption>
+    </figure>
+
+    <h3 style="margin-top:32px">Planification réelle du projet</h3>
+    <div class="captures captures-wide">
+      <figure class="capture">
+        <img src="../assets/img/captures/gantt-sae.png" alt="Diagramme de Gantt de la SAÉ gestion bancaire microservices">
+        <figcaption><strong>Diagramme de Gantt — binôme Rayan &amp; Tom</strong>Planification sur deux semaines avec répartition claire des tâches : en bleu mes responsabilités (auth-service, middleware rôles, logs, Docker Compose), en rouge la partie métier/front de Tom, en vert le travail commun.<span class="badge-real">document réel du projet</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">03</span> SAÉ rattachée</h2>
+    <div class="proj">
+      <div class="head"><h3>Application de gestion bancaire en microservices</h3><span class="badge">SAÉ 4.DevCloud.01</span></div>
+      <p>Interface de gestion bancaire découpée en services indépendants : authentification, opérations clients, validation agent et journalisation centralisée par messagerie.</p>
+      <div class="tags"><span class="tag">Microservices</span><span class="tag">API REST</span><span class="tag">Authentification</span><span class="tag">Messagerie / Logs</span><span class="tag">Base de données</span></div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <h2><span class="marker">04</span> Lien avec le référentiel</h2>
+    <div class="ref-tree">
+      <svg class="svg-tree" viewBox="0 0 760 300" role="img" aria-label="Arbre de la compétence Développer">
+        <path class="edge" d="M380,58 L150,150"/>
+        <path class="edge" d="M380,58 L380,150"/>
+        <path class="edge" d="M380,58 L610,150"/>
+        <rect class="node-comp" x="300" y="26" width="160" height="40" rx="8"/>
+        <text class="node-comp-label" x="380" y="51" text-anchor="middle">Développer</text>
+        <g>
+          <rect class="node-ac" x="70" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="150" y="172" text-anchor="middle">Concevoir une</text>
+          <text class="node-ac-label" x="150" y="187" text-anchor="middle">architecture</text>
+          <text class="node-ac-label" x="150" y="202" text-anchor="middle">microservices</text>
+          <text class="chk" x="150" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="300" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="380" y="172" text-anchor="middle">Exposer &amp;</text>
+          <text class="node-ac-label" x="380" y="187" text-anchor="middle">sécuriser des API</text>
+          <text class="node-ac-label" x="380" y="202" text-anchor="middle">(auth, accès)</text>
+          <text class="chk" x="380" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+        <g>
+          <rect class="node-ac" x="530" y="150" width="160" height="74" rx="7"/>
+          <text class="node-ac-label" x="610" y="172" text-anchor="middle">Journaliser via</text>
+          <text class="node-ac-label" x="610" y="187" text-anchor="middle">un service de</text>
+          <text class="node-ac-label" x="610" y="202" text-anchor="middle">messagerie</text>
+          <text class="chk" x="610" y="218" text-anchor="middle">✓ acquis</text>
+        </g>
+      </svg>
+      <div class="ref-caption">Composantes essentielles mises en œuvre dans l'application bancaire</div>
+    </div>
+  </section>
+
+  <section class="subsection reveal">
+    <div class="reflex">
+      <h3>Réflexivité</h3>
+      <div class="q-list">
+        <div class="qa"><div class="q">Quelle difficulté ai-je rencontrée ?</div><div class="a">En microservices, la difficulté n'est plus d'écrire une fonction mais de faire <em>communiquer</em> des services indépendants : qui appelle qui, comment une opération « en attente de validation » circule d'une API à l'autre sans incohérence.</div></div>
+        <div class="qa"><div class="q">Comment l'ai-je dépassée ?</div><div class="a">En définissant clairement le rôle et le contrat de chaque service avant de coder, et en m'appuyant sur un service de messagerie pour la journalisation — ce qui découple les API : chacune publie ses logs sans se soucier de qui les collecte.</div></div>
+        <div class="qa"><div class="q">Qu'ai-je proposé ou décidé ?</div><div class="a">Au démarrage, j'ai contribué au diagramme de Gantt pour découper le travail par service et fixer des jalons. Découper l'application <em>et</em> le planning selon la même logique a rendu la collaboration à plusieurs beaucoup plus fluide.</div></div>
+        <div class="qa"><div class="q">En quoi est-ce généralisable ?</div><div class="a">Penser en contrats entre services, découpler par la messagerie et planifier en modules : c'est exactement l'architecture qui sous-tend les applications cloud modernes. Cette compétence ferme la boucle de mon parcours — du réseau qui transporte, à l'application qui en tire parti.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-cta reveal" style="margin:8px 0 48px">
+    <a href="fiches-sae.html" class="btn btn-primary">📋 Voir les 3 fiches SAÉ (suivi · journal · synthèse)</a>
+    <a href="../index.html#competences" class="btn">← Revenir aux 5 compétences</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="copy">© 2026 Rayan SAOUD · Portfolio BUT R&amp;T S4</div>
+    <div class="foot-links"><a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

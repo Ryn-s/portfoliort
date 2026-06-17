@@ -1,0 +1,76 @@
+<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture OnionRouter : un message chiffré en couches traverse plusieurs routeurs, chacun pelant une couche" font-family="Inter, sans-serif">
+  <defs>
+    <marker id="ar3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .l{ fill:#9aa7b8; font-size:11px; font-family:'JetBrains Mono',monospace; }
+      .w{ fill:#e6edf3; font-size:12px; font-weight:600; }
+      .a{ fill:#4dd4ac; font-size:10px; font-family:'JetBrains Mono',monospace; }
+      .node{ fill:#161b22; stroke:#283040; stroke-width:1; }
+      .nodec{ fill:#1c2330; stroke:#5b9dff; stroke-width:1.2; }
+      .nodem{ fill:#161b22; stroke:#f0a868; stroke-width:1.2; }
+      .ln{ stroke:#4dd4ac; stroke-width:1.4; fill:none; }
+      .lnctrl{ stroke:#5d6b7d; stroke-width:1; fill:none; stroke-dasharray:4 3; }
+    </style>
+  </defs>
+
+  <text x="30" y="28" class="w" fill="#e6edf3" font-size="13">OnionRouter — communication anonyme par chiffrement en couches</text>
+  <text x="30" y="44" class="l">RSA implémenté à la main (sans librairie) · chaque routeur ne connaît que le suivant</text>
+
+  <!-- Client A -->
+  <rect x="30" y="120" width="120" height="56" rx="8" class="nodec"/>
+  <text x="90" y="142" class="w" text-anchor="middle">Client A</text>
+  <text x="90" y="159" class="l" text-anchor="middle">émetteur</text>
+
+  <!-- 3 onion layers visual on the message -->
+  <circle cx="225" cy="148" r="30" fill="none" stroke="#4dd4ac" stroke-width="1.4" opacity="0.9"/>
+  <circle cx="225" cy="148" r="21" fill="none" stroke="#4dd4ac" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="225" cy="148" r="12" fill="none" stroke="#4dd4ac" stroke-width="1" opacity="0.4"/>
+  <text x="225" y="151" class="a" text-anchor="middle">msg</text>
+  <text x="225" y="196" class="l" text-anchor="middle">3 couches RSA</text>
+
+  <!-- Routers chain -->
+  <rect x="300" y="120" width="90" height="56" rx="8" class="node"/>
+  <text x="345" y="142" class="w" text-anchor="middle">Routeur 1</text>
+  <text x="345" y="159" class="l" text-anchor="middle">pèle 1 couche</text>
+
+  <rect x="420" y="120" width="90" height="56" rx="8" class="node"/>
+  <text x="465" y="142" class="w" text-anchor="middle">Routeur 2</text>
+  <text x="465" y="159" class="l" text-anchor="middle">pèle 1 couche</text>
+
+  <rect x="540" y="120" width="90" height="56" rx="8" class="node"/>
+  <text x="585" y="142" class="w" text-anchor="middle">Routeur 3</text>
+  <text x="585" y="159" class="l" text-anchor="middle">pèle 1 couche</text>
+
+  <!-- Destination -->
+  <rect x="650" y="120" width="90" height="56" rx="8" class="nodec"/>
+  <text x="695" y="142" class="w" text-anchor="middle">Serveur</text>
+  <text x="695" y="159" class="l" text-anchor="middle">destinataire</text>
+
+  <!-- path -->
+  <path d="M150 148 L192 148" class="ln" marker-end="url(#ar3)"/>
+  <path d="M258 148 L296 148" class="ln" marker-end="url(#ar3)"/>
+  <path d="M390 148 L416 148" class="ln" marker-end="url(#ar3)"/>
+  <path d="M510 148 L536 148" class="ln" marker-end="url(#ar3)"/>
+  <path d="M630 148 L646 148" class="ln" marker-end="url(#ar3)"/>
+
+  <!-- Master / annuaire -->
+  <rect x="300" y="280" width="330" height="60" rx="8" class="nodem"/>
+  <text x="465" y="304" class="w" text-anchor="middle">Master — annuaire &amp; supervision</text>
+  <text x="465" y="322" class="l" text-anchor="middle">clés publiques des routeurs · base MariaDB · monitoring PyQt5</text>
+
+  <!-- control links from routers to master -->
+  <path d="M345 176 L420 278" class="lnctrl"/>
+  <path d="M465 176 L465 278" class="lnctrl"/>
+  <path d="M585 176 L510 278" class="lnctrl"/>
+  <text x="500" y="230" class="l" text-anchor="middle">enregistrement / clés</text>
+
+  <!-- legend -->
+  <rect x="30" y="365" width="14" height="12" rx="3" class="nodec"/>
+  <text x="52" y="375" class="l">Extrémités</text>
+  <line x1="160" y1="371" x2="184" y2="371" class="ln"/>
+  <text x="192" y="375" class="l">chemin chiffré (oignon)</text>
+  <line x1="330" y1="371" x2="354" y2="371" class="lnctrl"/>
+  <text x="362" y="375" class="l">plan de contrôle</text>
+</svg>
