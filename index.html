@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rayan SAOUD — Portfolio BUT R&T · DevCloud</title>
-<meta name="description" content="Portfolio de 2e année — BUT Réseaux & Télécommunications, parcours Développement Système & Cloud. Rayan SAOUD, IUT de Colmar.">
+<meta name="description" content="Portfolio de 2e année — BUT Réseaux & Télécommunications, parcours DevCloud, IUT de Colmar. Compétences validées en SAÉ et en stage (cluster Proxmox VE haute disponibilité chez NXO Telecom), mises en perspective avec le Programme National.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
       <a href="#competences">Compétences</a>
       <a href="#projets">SAÉ &amp; Projets</a>
       <a href="#parcours">Parcours</a>
+      <a href="#projet-pro">Projet pro</a>
       <a href="#cv">CV</a>
       <a href="#contact">Contact</a>
     </div>
@@ -41,7 +42,7 @@
     <div class="status-strip reveal">
       <div class="cell"><div class="k">Formation</div><div class="v">BUT R&amp;T <small>· DevCloud</small></div></div>
       <div class="cell"><div class="k">Établissement</div><div class="v">IUT de Colmar</div></div>
-      <div class="cell"><div class="k">Stage S4</div><div class="v">Admin. réseau <small>· 8 sem.</small></div></div>
+      <div class="cell"><div class="k">Stage S4</div><div class="v">Infra. Proxmox <small>· 6 sem.</small></div></div>
       <div class="cell"><div class="k">Compétences</div><div class="v">5 <small>· validées</small></div></div>
     </div>
   </div>
@@ -118,8 +119,8 @@
         <div class="num">COMPÉTENCE 04 — UE DevCloud.4</div>
         <div class="verb">Orchestrer</div>
         <h3>Coordonner des infrastructures modulaires</h3>
-        <p>Mettre en place une infrastructure virtualisée et conteneurisée, puis y déployer des services modulaires et reproductibles.</p>
-        <div class="tags"><span class="tag">Virtualisation</span><span class="tag">Conteneurs</span><span class="tag">Cloud</span></div>
+        <p>Bâtir et exploiter une infrastructure virtualisée : cluster à haute disponibilité, stockage partagé, conteneurisation et services reproductibles.</p>
+        <div class="tags"><span class="tag">Cluster HA</span><span class="tag">Conteneurs</span><span class="tag">Proxmox VE</span></div>
         <span class="go">Ouvrir la fiche <span class="arrow">→</span></span>
       </a>
 
@@ -134,7 +135,21 @@
 
     </div>
   </div>
-</section>
+
+    <div class="panel reveal" style="margin-top:28px">
+      <div class="prose">
+        <h3 style="margin-top:0">Le stage au regard du Programme National</h3>
+        <p style="margin-bottom:14px">Le contrat pédagogique demande de mettre les compétences acquises en stage « en perspective avec celles définies dans le programme national du BUT R&amp;T ». Voici cette correspondance en synthèse — chaque fiche de compétence la détaille avec ses preuves :</p>
+        <ul style="margin-bottom:6px">
+          <li><strong>Orchestrer</strong> · <a href="competences/orchestrer.html">AC34.01, AC34.02, AC34.03</a> — concevoir, administrer et superviser une infrastructure Cloud ; orchestrer ses ressources ; investiguer et résoudre les incidents. <em>Cluster Proxmox HA, rééquilibrage automatique, 9 points de vigilance.</em></li>
+          <li><strong>Administrer</strong> · <a href="competences/administrer.html">AC21.03, AC31.01, AC31.02, AC31.03</a> — déployer des solutions virtualisées ; concevoir un projet intégrant haute disponibilité, sécurité et supervision ; le documenter ; en réaliser la maquette. <em>La mission de stage elle-même : maquette recettée par 46 tests, 16 livrables.</em></li>
+          <li><strong>Connecter</strong> · <a href="competences/connecter.html">AC32.04</a> (en partie) — encadrer l'accès aux ressources du système d'information. <em>Segmentation en quatre VLAN et filtrage inter-VLAN.</em></li>
+          <li><strong>Programmer</strong> · <a href="competences/programmer.html">AC23.01</a> — automatiser l'administration système avec des scripts. <em>Outil pvetool en Python, validé sur le cluster réel.</em></li>
+          <li><strong>Développer</strong> · <a href="competences/developper.html">AC25.03</a> — programmer son réseau par le code. <em>Infrastructure pilotée par l'API, sans interface graphique.</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
 <!-- ============ PROJETS / SAÉ ============ -->
 <section class="block" id="projets">
@@ -185,9 +200,10 @@
       </div>
 
       <div class="proj reveal">
-        <div class="head"><h3>Stage — Administrateur réseau</h3><span class="badge">situation pro · 8 sem.</span></div>
-        <p>Stage d'administrateur réseau chez <strong>NXO</strong> à Wittelsheim (juin–août 2026, 8 semaines) — mise en pratique professionnelle des compétences d'administration et de connexion.</p>
-        <div class="tags"><span class="tag">Admin réseau</span><span class="tag">Entreprise</span></div>
+        <div class="head"><h3>Stage — Infrastructure virtualisée en cluster</h3><span class="badge">situation pro · 6 sem.</span></div>
+        <p>Conception et déploiement d'une maquette <strong>Proxmox VE en cluster</strong> chez <strong>NXO Telecom</strong> (groupe Fayat) : haute disponibilité, stockage NAS externe, segmentation VLAN et étude de compatibilité Veeam. <strong>46 tests de recette</strong> conformes et 16 livrables documentaires produits.</p>
+        <div class="tags"><span class="tag">Proxmox VE</span><span class="tag">Cluster / HA</span><span class="tag">NAS / NFS</span><span class="tag">Veeam</span><span class="tag">VLAN</span></div>
+        <p style="margin-top:14px;margin-bottom:0"><a href="competences/orchestrer.html">→ Voir la compétence Orchestrer</a></p>
       </div>
 
     </div>
@@ -216,10 +232,98 @@
       <div class="panel">
         <h3 style="margin-top:0">Expérience professionnelle</h3>
         <div class="cv-item">
-          <div class="it-head"><span class="it-title">Stagiaire administrateur réseau</span><span class="it-date">juin 2026 →</span></div>
-          <div class="it-sub">NXO · Wittelsheim</div>
-          <ul><li>Administration et exploitation d'infrastructures réseau en environnement professionnel.</li></ul>
+          <div class="it-head"><span class="it-title">Stagiaire — infrastructure virtualisée</span><span class="it-date">juin–août 2026</span></div>
+          <div class="it-sub">NXO Telecom (groupe Fayat) · Wittelsheim · 6 semaines</div>
+          <ul>
+            <li>Cluster Proxmox VE 2 nœuds avec haute disponibilité et quorum tiers (QDevice sur NAS).</li>
+            <li>Stockage partagé NFS et sauvegardes vzdump vers NAS Synology, avec notifications par e-mail.</li>
+            <li>Segmentation VLAN sur switch Alcatel et filtrage inter-VLAN sur routeur DrayTek.</li>
+            <li>Étude de compatibilité Veeam Backup &amp; Replication : sauvegarde et restauration validées.</li>
+          </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PROJET PROFESSIONNEL ============ -->
+<section class="block" id="projet-pro">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">// next hop</div>
+      <h2>Projet professionnel — stage de 3<sup>e</sup> année</h2>
+      <p>Ce que je cherche pour le stage long de 3<sup>e</sup> année, et les entreprises que je vise en conséquence.</p>
+    </div>
+
+    <div class="grid-2 reveal">
+      <div class="panel prose">
+        <h3 style="margin-top:0">Ce que je recherche</h3>
+        <p>Mon stage de 2<sup>e</sup> année a confirmé une orientation : je veux travailler sur <strong>l'infrastructure et son exploitation</strong> — virtualisation, stockage, haute disponibilité, sauvegarde — plutôt que sur le développement applicatif seul.</p>
+        <p>Je vise un stage où l'on m'aura confié un périmètre technique réel, avec de l'automatisation à la clé : administration d'un parc virtualisé, déploiement automatisé, ou exploitation d'une infrastructure cloud ou hébergée.</p>
+        <div class="tags" style="margin-top:8px">
+          <span class="tag">Virtualisation</span><span class="tag">Cloud / hébergement</span>
+          <span class="tag">Automatisation</span><span class="tag">Exploitation / supervision</span>
+        </div>
+      </div>
+
+      <div class="panel prose">
+        <h3 style="margin-top:0">Ce que j'apporte</h3>
+        <ul>
+          <li>Une expérience concrète de <strong>déploiement d'infrastructure en entreprise</strong>, du matériel à la documentation d'exploitation.</li>
+          <li>L'habitude de <strong>documenter et de faire recetter</strong> ce que je livre — 16 livrables et 46 tests formalisés sur mon stage de 2<sup>e</sup> année.</li>
+          <li>Une capacité d'<strong>automatisation par le code</strong> : Python appliqué à l'administration système, API REST, outillage en ligne de commande.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-head reveal" style="margin-top:34px">
+      <h3 style="font-size:1.05rem">Entreprises visées</h3>
+    </div>
+    <div class="proj-grid reveal">
+
+      <div class="proj">
+        <div class="head"><h3>NXO Telecom</h3><span class="badge">contact établi</span></div>
+        <p>Intégrateur réseau et télécoms du groupe Fayat, où j'ai réalisé mon stage de 2<sup>e</sup> année à Wittelsheim. Contact professionnel maintenu avec mon tuteur. Candidature prioritaire : la connaissance mutuelle est acquise et la maquette Proxmox que j'ai livrée appelle une suite (passage en production, extension à un troisième nœud).</p>
+        <div class="tags"><span class="tag">Wittelsheim</span><span class="tag">Intégrateur</span><span class="tag">Continuité technique</span></div>
+      </div>
+
+      <div class="proj">
+        <div class="head"><h3>Capinfo</h3><span class="badge">infogérance &amp; cloud privé</span></div>
+        <p>Prestataire informatique du Grand Est (Strasbourg, Colmar, Mulhouse, Metz, Nancy) proposant de l'hébergement et du cloud privé en plus de l'infogérance de parcs clients. Le profil correspond directement à ce que j'ai pratiqué : infrastructures virtualisées, stockage, sauvegarde externalisée — avec l'exposition à plusieurs environnements clients en plus.</p>
+        <div class="tags"><span class="tag">Grand Est</span><span class="tag">Cloud privé</span><span class="tag">Multi-clients</span></div>
+      </div>
+
+      <div class="proj">
+        <div class="head"><h3>Coraxis</h3><span class="badge">hébergeur</span></div>
+        <p>Hébergeur strasbourgeois installé depuis 2002, exploitant serveurs dédiés et infrastructures mutualisées en datacenter, avec sauvegarde externalisée sur site distant. Une structure où l'infrastructure <em>est</em> le métier : le terrain le plus direct pour approfondir virtualisation, stockage et continuité de service à l'échelle.</p>
+        <div class="tags"><span class="tag">Strasbourg</span><span class="tag">Datacenter</span><span class="tag">Hébergement</span></div>
+      </div>
+
+      <div class="proj">
+        <div class="head"><h3>Alliance Informatique Alsace</h3><span class="badge">cloud privé</span></div>
+        <p>Société de services alsacienne intervenant de l'étude à la mise en œuvre d'infrastructures cloud privées, avec duplication des sauvegardes entre datacenters régionaux. Le cycle complet — concevoir, déployer, exploiter — est celui que j'ai suivi en maquette chez NXO, ici appliqué à des clients réels.</p>
+        <div class="tags"><span class="tag">Alsace</span><span class="tag">IaaS</span><span class="tag">Conception</span></div>
+      </div>
+
+      <div class="proj">
+        <div class="head"><h3>DSI industrielles du Haut-Rhin</h3><span class="badge">cible sectorielle</span></div>
+        <p>Le bassin Mulhouse–Colmar concentre des sites industriels exploitant leur propre parc virtualisé en interne, avec des contraintes de continuité de service fortes — un arrêt de production coûte immédiatement. Contexte très proche de celui que j'ai connu, où la haute disponibilité n'est pas un exercice mais une nécessité.</p>
+        <div class="tags"><span class="tag">Haut-Rhin</span><span class="tag">DSI interne</span><span class="tag">Production</span></div>
+      </div>
+
+      <div class="proj">
+        <div class="head"><h3>Opérateurs cloud nationaux</h3><span class="badge">ouverture</span></div>
+        <p>OVHcloud, Scaleway, Outscale : les acteurs français du cloud offrent une échelle et une profondeur technique qu'aucune structure régionale ne peut proposer. Candidature d'ouverture, motivée par l'envie de voir comment les mécanismes que j'ai manipulés sur deux nœuds se comportent sur des milliers.</p>
+        <div class="tags"><span class="tag">National</span><span class="tag">Grande échelle</span><span class="tag">Cloud public</span></div>
+      </div>
+
+    </div>
+
+    <div class="panel reveal" style="margin-top:20px">
+      <div class="prose">
+        <p><strong>Démarche engagée</strong> — candidatures spontanées ciblées dès la rentrée de septembre, en priorité sur l'axe Colmar – Mulhouse – Strasbourg, avec ouverture nationale pour les opérateurs cloud. Le présent portfolio et mes dépôts publics servent de support de candidature.</p>
+        <p style="margin-bottom:0"><strong>Critère de sélection</strong> — je privilégie les structures où l'infrastructure est exploitée en interne plutôt que sous-traitée : c'est la condition pour qu'un stagiaire touche réellement à la virtualisation, au stockage et à la sauvegarde, au lieu de se limiter au support utilisateur.</p>
       </div>
     </div>
   </div>
@@ -257,15 +361,15 @@
 
         <div class="cv-block">
           <h4>Profil</h4>
-          <p style="color:var(--text-dim);font-size:.94rem">Étudiant en 2<sup>e</sup> année de BUT Réseaux &amp; Télécommunications, parcours Développement Système &amp; Cloud. Je conçois, déploie et supervise des infrastructures réseau et des services distribués, du LAN commuté jusqu'au microservice virtualisé.</p>
+          <p style="color:var(--text-dim);font-size:.94rem">Étudiant en 2<sup>e</sup> année de BUT Réseaux &amp; Télécommunications, parcours Développement Système &amp; Cloud. Je conçois, déploie et supervise des infrastructures réseau et des services distribués, du LAN commuté jusqu'au microservice virtualisé. Expérience professionnelle en virtualisation d'entreprise : cluster Proxmox VE à haute disponibilité, stockage partagé et sauvegarde.</p>
         </div>
 
         <div class="cv-block">
           <h4>Expérience</h4>
           <div class="cv-item">
-            <div class="it-head"><span class="it-title">Stagiaire administrateur réseau — NXO</span><span class="it-date">juin–août 2026</span></div>
-            <div class="it-sub">Wittelsheim · 8 semaines</div>
-            <ul><li>Administration et exploitation d'infrastructures réseau d'entreprise.</li></ul>
+            <div class="it-head"><span class="it-title">Stagiaire infrastructure virtualisée — NXO Telecom (groupe Fayat)</span><span class="it-date">juin–août 2026</span></div>
+            <div class="it-sub">Wittelsheim · 6 semaines</div>
+            <ul><li>Cluster Proxmox VE (HA, QDevice, stockage NFS partagé), sauvegardes vers NAS Synology et notifications, segmentation VLAN, étude de compatibilité Veeam ; 46 tests de recette et documentation d'exploitation.</li></ul>
           </div>
           <div class="cv-item">
             <div class="it-head"><span class="it-title">Serveur / Runner (extras) — Le Chambard, Hôtel 5★</span><span class="it-date">2025–2026</span></div>
@@ -321,7 +425,8 @@
             <span class="tag">OSPF</span><span class="tag">VLAN / STP / Trunk</span><span class="tag">IPv4 / IPv6</span>
             <span class="tag">BGP / MPLS-VPN</span><span class="tag">VRRP</span><span class="tag">DNS / DNSSEC</span>
             <span class="tag">Active Directory</span><span class="tag">iptables / nftables</span><span class="tag">OpenVPN</span>
-            <span class="tag">VMware</span><span class="tag">Proxmox</span><span class="tag">Docker</span><span class="tag">QEMU/KVM</span>
+            <span class="tag">VMware</span><span class="tag">Proxmox VE / cluster HA</span><span class="tag">Docker</span><span class="tag">QEMU/KVM</span>
+            <span class="tag">ZFS</span><span class="tag">NFS / SMB</span><span class="tag">Veeam B&amp;R</span>
             <span class="tag">Python</span><span class="tag">Zabbix</span>
           </div>
         </div>
@@ -350,15 +455,15 @@
 
         <div class="cv-block">
           <h4>Profile</h4>
-          <p style="color:var(--text-dim);font-size:.94rem">Second-year student in a French Networks &amp; Telecommunications degree (BUT R&amp;T), Systems &amp; Cloud Development track. I design, deploy and monitor network infrastructures and distributed services — from switched LANs to virtualized microservices.</p>
+          <p style="color:var(--text-dim);font-size:.94rem">Second-year student in a French Networks &amp; Telecommunications degree (BUT R&amp;T), Systems &amp; Cloud Development track. I design, deploy and monitor network infrastructures and distributed services — from switched LANs to virtualized microservices. Professional experience in enterprise virtualization: high-availability Proxmox VE cluster, shared storage and backup.</p>
         </div>
 
         <div class="cv-block">
           <h4>Experience</h4>
           <div class="cv-item">
-            <div class="it-head"><span class="it-title">Network Administrator Intern — NXO</span><span class="it-date">Jun–Aug 2026</span></div>
-            <div class="it-sub">Wittelsheim, France · 8 weeks</div>
-            <ul><li>Administration and operation of enterprise network infrastructure.</li></ul>
+            <div class="it-head"><span class="it-title">Virtualization Infrastructure Intern — NXO Telecom (Fayat Group)</span><span class="it-date">Jun–Aug 2026</span></div>
+            <div class="it-sub">Wittelsheim, France · 6 weeks</div>
+            <ul><li>Proxmox VE cluster (HA, QDevice, shared NFS storage), backups to Synology NAS with e-mail notifications, VLAN segmentation, Veeam compatibility study; 46 acceptance tests and operational documentation.</li></ul>
           </div>
           <div class="cv-item">
             <div class="it-head"><span class="it-title">Waiter / Runner (extra) — Le Chambard, 5★ Hotel</span><span class="it-date">2025–2026</span></div>
@@ -414,7 +519,8 @@
             <span class="tag">OSPF</span><span class="tag">VLAN / STP / Trunk</span><span class="tag">IPv4 / IPv6</span>
             <span class="tag">BGP / MPLS-VPN</span><span class="tag">VRRP</span><span class="tag">DNS / DNSSEC</span>
             <span class="tag">Active Directory</span><span class="tag">iptables / nftables</span><span class="tag">OpenVPN</span>
-            <span class="tag">VMware</span><span class="tag">Proxmox</span><span class="tag">Docker</span><span class="tag">QEMU/KVM</span>
+            <span class="tag">VMware</span><span class="tag">Proxmox VE / cluster HA</span><span class="tag">Docker</span><span class="tag">QEMU/KVM</span>
+            <span class="tag">ZFS</span><span class="tag">NFS / SMB</span><span class="tag">Veeam B&amp;R</span>
             <span class="tag">Python</span><span class="tag">Zabbix</span>
           </div>
         </div>

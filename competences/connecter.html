@@ -42,7 +42,7 @@
     <h2><span class="marker">01</span> Contexte</h2>
     <div class="w-grid">
       <div class="w"><div class="q">Pourquoi</div><div class="a">Deux entreprises présentes sur trois villes ont besoin d'une connectivité inter-sites fiable, fournie par un opérateur.</div></div>
-      <div class="w"><div class="q">Qui</div><div class="a">SAÉ en groupe de 3 (interconnexion opérateur) ; SAÉ de transmission menée en parallèle (prise intelligente).</div></div>
+      <div class="w"><div class="q">Qui</div><div class="a">SAÉ en groupe de 3 (interconnexion opérateur) ; SAÉ de transmission menée en parallèle (prise intelligente) ; puis segmentation d'un réseau d'entreprise en autonomie chez NXO Telecom.</div></div>
       <div class="w"><div class="q">Quoi</div><div class="a">Un cœur de réseau FAI sur 3 AS offrant du MPLS-VPN, et une chaîne de transmission jusqu'à l'usager.</div></div>
       <div class="w"><div class="q">Où</div><div class="a">Maquette EVE-NG répartie sur plusieurs machines, à l'IUT de Colmar.</div></div>
       <div class="w"><div class="q">Quand</div><div class="a">Semestre 3 — volet « réseau opérateur » de la SAÉ multi-sites, et SAÉ 3.01.</div></div>
@@ -61,11 +61,20 @@
         <li><strong>Filtrage de routes</strong> pour cloisonner les clients : seuls les préfixes clients circulent, et certaines politiques imposent qu'un flux transite par un AS précis ou que l'accès ne parte que du siège.</li>
         <li>Exposition d'un serveur web au public via une <strong>translation NAT</strong> dédiée, en parallèle de l'accès MPLS-VPN.</li>
       </ul>
+      <h3>En entreprise — segmentation et filtrage d’un réseau réel</h3>
+      <p>Chez <strong>NXO Telecom</strong>, le raccordement de l’infrastructure virtualisée m’a conduit à concevoir et configurer la partie réseau de la maquette, sur du matériel de production :</p>
+      <ul>
+        <li><strong>Segmentation en quatre VLAN</strong> sur switch Alcatel OmniSwitch : management, stockage, cluster et production — les flux de stockage et de synchronisation du cluster étant isolés du reste pour éviter qu’une saturation de l’un ne dégrade l’autre.</li>
+        <li><strong>Liens trunk</strong> transportant plusieurs VLAN vers le NAS et les hyperviseurs, avec VLAN natif dédié à l’administration.</li>
+        <li><strong>Routage et filtrage inter-VLAN</strong> sur routeur DrayTek : règles de pare-feu autorisant un flux applicatif précis entre deux réseaux, et blocage de tout le reste — application directe du principe de moindre privilège au niveau réseau.</li>
+        <li><strong>Validation par les tests</strong> : huit tests de segmentation et cinq tests de filtrage consignés dans le cahier de recette, vérifiant aussi bien ce qui doit passer que ce qui doit être refusé.</li>
+      </ul>
       <p>En complément, la SAÉ <strong>« Prise Wifi intelligente »</strong> (mise en œuvre d'un système de transmission, notée 18/20) m'a fait travailler le raccordement de l'usager final — la dernière brique entre l'infrastructure et l'objet connecté.</p>
     </div>
     <div class="evidence">
       <div class="ev"><div class="t">Tests de redondance</div><div class="d">Coupure d'interface ASBR et vérification que le ping inter-sites continue de passer — preuve de la tolérance aux pannes.</div></div>
       <div class="ev"><div class="t">Traceroute de politique</div><div class="d">Vérification qu'un flux UC Exchange Strasbourg→Metz transite bien par l'AS 20, conformément au filtrage BGP appliqué.</div></div>
+      <div class="ev"><div class="t">Segmentation VLAN en entreprise</div><div class="d">Stage NXO Telecom — quatre VLAN sur switch Alcatel, trunks vers NAS et hyperviseurs, filtrage inter-VLAN sur routeur DrayTek, validés par 13 tests de recette.</div></div>
       <div class="ev"><div class="t">Étanchéité inter-clients</div><div class="d">Validation que deux sites d'un client ne peuvent pas joindre ceux d'un autre — cloisonnement VPN confirmé.</div></div>
     </div>
     <figure style="margin:24px 0 0">
@@ -104,6 +113,14 @@
 
   <section class="subsection reveal">
     <h2><span class="marker">04</span> Lien avec le référentiel</h2>
+    <div class="prose" style="margin-bottom:20px">
+      <p>Cette compétence correspond, dans le programme national, à <strong>« Connecter les entreprises et les usagers »</strong>. Les situations décrites mobilisent notamment :</p>
+    </div>
+    <div class="evidence" style="margin-bottom:24px">
+      <div class="ev"><div class="t">AC22.03 — Mettre en place une connexion multi-site via un réseau opérateur</div><div class="d">SAÉ : interconnexion MPLS-VPN de deux clients multi-sites à travers un cœur opérateur à trois systèmes autonomes, avec étanchéité vérifiée.</div></div>
+      <div class="ev"><div class="t">AC12.03 — Déployer des supports de transmission</div><div class="d">SAÉ « Prise Wifi intelligente » : mise en œuvre complète d’un système de transmission, de la couche physique à l’usage.</div></div>
+      <div class="ev"><div class="t">AC32.04 — Permettre aux collaborateurs de se connecter de manière sécurisée au système d’information</div><div class="d">Mobilisé en partie au stage NXO : la segmentation VLAN et le filtrage inter-VLAN encadrent précisément quels réseaux accèdent à quelles ressources du système d’information.</div></div>
+    </div>
     <div class="ref-tree">
       <svg class="svg-tree" viewBox="0 0 760 300" role="img" aria-label="Arbre de la compétence Connecter">
         <path class="edge" d="M380,58 L130,150"/>

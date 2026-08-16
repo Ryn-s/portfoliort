@@ -32,7 +32,7 @@
     <div class="breadcrumb"><a href="../index.html">~</a> / <a href="../index.html#competences">compétences</a> / orchestrer</div>
     <div class="verb-big">COMPÉTENCE 04 · Orchestrer · Parcours DevCloud</div>
     <h1>Coordonner des infrastructures modulaires</h1>
-    <p class="lead">Bâtir le socle cloud : une infrastructure virtualisée et conteneurisée où les services sont modulaires, reproductibles et mutualisés — pensée pour évoluer plutôt que pour être refaite.</p>
+    <p class="lead">Bâtir et exploiter le socle : une infrastructure virtualisée où les services sont modulaires et reproductibles, et qui continue de fonctionner quand une machine tombe. Compétence travaillée en SAÉ, puis mise à l'épreuve en entreprise sur une infrastructure réelle.</p>
   </div>
 </header>
 
@@ -41,29 +41,44 @@
   <section class="subsection reveal">
     <h2><span class="marker">01</span> Contexte</h2>
     <div class="w-grid">
-      <div class="w"><div class="q">Pourquoi</div><div class="a">Mutualiser les ressources et déployer des services de façon reproductible, sans réinstaller manuellement à chaque fois.</div></div>
-      <div class="w"><div class="q">Qui</div><div class="a">SAÉ DevCloud menées en équipe, dans l'UE « Coordonner des infrastructures modulaires ».</div></div>
-      <div class="w"><div class="q">Quoi</div><div class="a">Une infrastructure virtualisée hébergeant des services, puis la conteneurisation pour packager et déployer ces services.</div></div>
-      <div class="w"><div class="q">Où</div><div class="a">Environnements virtualisés et cloud à l'IUT de Colmar.</div></div>
-      <div class="w"><div class="q">Quand</div><div class="a">Semestres 3 et 4 — SAÉ « Mettre en place une infrastructure virtualisée » et « Développer et déployer un microservice ».</div></div>
-      <div class="w"><div class="q">Comment</div><div class="a">Virtualisation, fondamentaux de la conteneurisation, écosystème cloud et déploiement modulaire.</div></div>
+      <div class="w"><div class="q">Pourquoi</div><div class="a">Mutualiser les ressources, déployer des services de façon reproductible, et garantir la continuité de service quand un nœud tombe en panne.</div></div>
+      <div class="w"><div class="q">Qui</div><div class="a">SAÉ DevCloud en équipe à l'IUT ; puis en autonomie chez NXO Telecom (groupe Fayat), encadré par un tuteur entreprise.</div></div>
+      <div class="w"><div class="q">Quoi</div><div class="a">Une infrastructure virtualisée et conteneurisée à l'IUT ; en entreprise, un cluster Proxmox VE à haute disponibilité adossé à un stockage NAS externe.</div></div>
+      <div class="w"><div class="q">Où</div><div class="a">Environnements virtualisés de l'IUT de Colmar, puis maquette matérielle en entreprise à Wittelsheim (2 serveurs, NAS, switch, routeur).</div></div>
+      <div class="w"><div class="q">Quand</div><div class="a">Semestres 3 et 4 pour les SAÉ ; juin à août 2026 pour le stage de 2<sup>e</sup> année.</div></div>
+      <div class="w"><div class="q">Comment</div><div class="a">Virtualisation et conteneurisation, cluster et quorum, stockage partagé NFS, haute disponibilité et rééquilibrage automatique, sauvegarde et supervision.</div></div>
     </div>
   </section>
 
   <section class="subsection reveal">
     <h2><span class="marker">02</span> Actions, traces &amp; preuves</h2>
     <div class="prose">
+      <h3 style="margin-top:0">En formation — le socle</h3>
       <ul>
         <li><strong>Infrastructure virtualisée</strong> : mise en place d'un environnement hébergeant des services mutualisés, socle réutilisable plutôt qu'installation jetable.</li>
         <li><strong>Conteneurisation</strong> : prise en main des fondamentaux (isolation, image, conteneur) pour packager un service et le redéployer à l'identique d'une machine à l'autre.</li>
         <li><strong>Déploiement modulaire</strong> : organiser une application non pas en bloc monolithique mais en services indépendants déployables séparément — la base directe du projet de microservices.</li>
-        <li><strong>Écosystème cloud</strong> : comprendre comment les briques (réseau, stockage, calcul) s'assemblent pour offrir un service mutualisé et élastique.</li>
       </ul>
-      <p>Cette compétence est le pont entre l'<a href="administrer.html">administration réseau</a> (le socle) et le <a href="developper.html">développement d'applications</a> (ce qui tourne dessus) : orchestrer, c'est faire en sorte que les deux mondes se coordonnent proprement.</p>
+
+      <h3>En entreprise — la mise à l'épreuve</h3>
+      <p>Mon stage de 2<sup>e</sup> année chez <strong>NXO Telecom</strong> a porté sur la conception et le déploiement d'une maquette d'infrastructure virtualisée destinée à préfigurer une production : c'est le passage de « ça fonctionne » à « ça tient la panne ».</p>
+      <ul>
+        <li><strong>Cluster et quorum</strong> — cluster Proxmox VE de deux nœuds, avec un troisième vote (QDevice) hébergé sur le NAS pour lever l'indécision d'un cluster pair lors d'une panne.</li>
+        <li><strong>Stockage partagé</strong> — partages NFS sur NAS Synology, condition nécessaire à la haute disponibilité : un disque accessible depuis les deux nœuds permet à une machine de redémarrer ailleurs.</li>
+        <li><strong>Haute disponibilité</strong> — placement des machines critiques sous HA, simulation de panne d'un nœud et vérification du basculement automatique.</li>
+        <li><strong>Rééquilibrage de charge</strong> — activation du CRS en mode <em>Dynamic Load</em> : le cluster mesure lui-même son déséquilibre et migre une machine quand le seuil est dépassé (37,0 % → 33,3 % constatés).</li>
+        <li><strong>Sauvegarde et supervision</strong> — sauvegardes vzdump planifiées vers le NAS, notifications par e-mail du résultat de chaque exécution, et étude de compatibilité de Veeam Backup &amp; Replication avec restauration effective d'une machine.</li>
+        <li><strong>Segmentation réseau</strong> — quatre VLAN (management, stockage, cluster, production) sur switch Alcatel, filtrage inter-VLAN sur routeur DrayTek.</li>
+      </ul>
+      <p>Cette compétence est le pont entre l'<a href="administrer.html">administration réseau</a> (le socle) et le <a href="developper.html">développement d'applications</a> (ce qui tourne dessus) : orchestrer, c'est faire en sorte que les deux mondes se coordonnent proprement — et continuent de le faire en cas d'incident.</p>
     </div>
+
     <div class="evidence">
-      <div class="ev"><div class="t">Infrastructure virtualisée</div><div class="d">SAÉ DevCloud.04 — environnement de services mutualisés.</div></div>
+      <div class="ev"><div class="t">Cluster Proxmox VE à haute disponibilité</div><div class="d">Stage NXO Telecom — 2 nœuds + QDevice, stockage NFS partagé, basculement automatique vérifié par simulation de panne.</div></div>
+      <div class="ev"><div class="t">Recette formalisée — 46 tests conformes</div><div class="d">Cahier de recette structuré en 7 séries (stockage, HA, réseau, filtrage, sauvegarde, serveur Veeam, notifications) et 9 points de vigilance documentés pour une transposition en production.</div></div>
+      <div class="ev"><div class="t">Documentation d'exploitation</div><div class="d">16 livrables produits : procédures d'installation pas à pas, synoptiques, rapports de tests, rapport final et recommandations.</div></div>
       <div class="ev"><div class="t">Déploiement conteneurisé</div><div class="d">Application microservices orchestrée avec Docker Compose dans un environnement virtualisé (SAÉ 4.DevCloud.01).</div></div>
+      <div class="ev"><div class="t">Infrastructure virtualisée</div><div class="d">SAÉ DevCloud.04 — environnement de services mutualisés.</div></div>
     </div>
     <figure style="margin:24px 0 0">
       <img src="../assets/img/archi-microservices.svg" alt="Architecture microservices conteneurisée" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
@@ -84,11 +99,25 @@
         <p>Déploiement d'une application en microservices dans un environnement virtualisé/conteneurisé.</p>
         <div class="tags"><span class="tag">Conteneurs</span><span class="tag">Déploiement</span><span class="tag">Microservices</span></div>
       </div>
+      <div class="proj">
+        <div class="head"><h3>Maquette d'infrastructure en cluster</h3><span class="badge">stage · situation pro</span></div>
+        <p>Conception, déploiement et recette d'un cluster Proxmox VE à haute disponibilité chez NXO Telecom : stockage NAS partagé, sauvegarde, segmentation VLAN et étude Veeam.</p>
+        <div class="tags"><span class="tag">Proxmox VE</span><span class="tag">Cluster HA</span><span class="tag">NAS / NFS</span><span class="tag">Veeam</span></div>
+      </div>
     </div>
   </section>
 
   <section class="subsection reveal">
     <h2><span class="marker">04</span> Lien avec le référentiel</h2>
+    <div class="prose" style="margin-bottom:20px">
+      <p>Cette compétence correspond, dans le programme national du BUT R&amp;T, à la compétence <strong>« Coordonner des infrastructures modulaires »</strong> du parcours DevCloud. Les situations décrites ci-dessus couvrent les apprentissages critiques suivants :</p>
+    </div>
+    <div class="evidence" style="margin-bottom:24px">
+      <div class="ev"><div class="t">AC34.01 — Concevoir, administrer et superviser une infrastructure Cloud</div><div class="d">Conception et déploiement du cluster Proxmox VE de bout en bout : installation des nœuds, intégration du stockage NAS, mise en place du suivi par notifications e-mail des sauvegardes.</div></div>
+      <div class="ev"><div class="t">AC34.02 — Orchestrer les ressources Cloud</div><div class="d">Haute disponibilité avec basculement automatique, et rééquilibrage dynamique de la charge entre nœuds par le planificateur de ressources du cluster.</div></div>
+      <div class="ev"><div class="t">AC34.03 — Investiguer sur les incidents et les résoudre</div><div class="d">Diagnostic et résolution d'incidents rencontrés en conditions réelles : conteneurs LXC non pris en charge par la solution de sauvegarde applicative, version d'hyperviseur hors matrice de compatibilité, authentification refusée sur un compte mal formé. Neuf points de vigilance formalisés.</div></div>
+      <div class="ev"><div class="t">Fondamentaux de la conteneurisation et du déploiement modulaire</div><div class="d">SAÉ DevCloud : packaging de services en conteneurs et déploiement d'une application découpée en microservices.</div></div>
+    </div>
     <div class="ref-tree">
       <svg class="svg-tree" viewBox="0 0 760 300" role="img" aria-label="Arbre de la compétence Orchestrer">
         <path class="edge" d="M380,58 L150,150"/>
@@ -98,27 +127,27 @@
         <text class="node-comp-label" x="380" y="51" text-anchor="middle">Orchestrer</text>
         <g>
           <rect class="node-ac" x="70" y="150" width="160" height="74" rx="7"/>
-          <text class="node-ac-label" x="150" y="172" text-anchor="middle">Mettre en place</text>
-          <text class="node-ac-label" x="150" y="187" text-anchor="middle">une infrastructure</text>
-          <text class="node-ac-label" x="150" y="202" text-anchor="middle">virtualisée</text>
+          <text class="node-ac-label" x="150" y="172" text-anchor="middle">AC34.01 — concevoir,</text>
+          <text class="node-ac-label" x="150" y="187" text-anchor="middle">administrer, superviser</text>
+          <text class="node-ac-label" x="150" y="202" text-anchor="middle">une infra Cloud</text>
           <text class="chk" x="150" y="218" text-anchor="middle">✓ acquis</text>
         </g>
         <g>
           <rect class="node-ac" x="300" y="150" width="160" height="74" rx="7"/>
-          <text class="node-ac-label" x="380" y="172" text-anchor="middle">Maîtriser les</text>
-          <text class="node-ac-label" x="380" y="187" text-anchor="middle">fondamentaux de la</text>
-          <text class="node-ac-label" x="380" y="202" text-anchor="middle">conteneurisation</text>
+          <text class="node-ac-label" x="380" y="172" text-anchor="middle">AC34.02 —</text>
+          <text class="node-ac-label" x="380" y="187" text-anchor="middle">orchestrer les</text>
+          <text class="node-ac-label" x="380" y="202" text-anchor="middle">ressources Cloud</text>
           <text class="chk" x="380" y="218" text-anchor="middle">✓ acquis</text>
         </g>
         <g>
           <rect class="node-ac" x="530" y="150" width="160" height="74" rx="7"/>
-          <text class="node-ac-label" x="610" y="172" text-anchor="middle">Déployer des</text>
-          <text class="node-ac-label" x="610" y="187" text-anchor="middle">services modulaires</text>
-          <text class="node-ac-label" x="610" y="202" text-anchor="middle">&amp; reproductibles</text>
+          <text class="node-ac-label" x="610" y="172" text-anchor="middle">AC34.03 —</text>
+          <text class="node-ac-label" x="610" y="187" text-anchor="middle">investiguer et</text>
+          <text class="node-ac-label" x="610" y="202" text-anchor="middle">résoudre les incidents</text>
           <text class="chk" x="610" y="218" text-anchor="middle">✓ acquis</text>
         </g>
       </svg>
-      <div class="ref-caption">Composantes essentielles — virtualisation &amp; orchestration modulaire</div>
+      <div class="ref-caption">Apprentissages critiques — administrer une infrastructure Cloud (niveau 2)</div>
     </div>
   </section>
 
@@ -126,10 +155,10 @@
     <div class="reflex">
       <h3>Réflexivité</h3>
       <div class="q-list">
-        <div class="qa"><div class="q">Quelle difficulté ai-je rencontrée ?</div><div class="a">Passer d'une logique « une machine = un service installé à la main » à une logique modulaire et reproductible demande de changer de réflexe. Au début, je configurais encore les choses « à la main », ce qui rendait tout difficile à reproduire ailleurs.</div></div>
-        <div class="qa"><div class="q">Comment l'ai-je dépassée ?</div><div class="a">En m'appuyant sur ce que j'avais appris sur OnionRouter — où le README permettait de réinstaller le projet pas à pas — j'ai pris l'habitude de penser « déploiement reproductible » dès le départ : packager le service plutôt que le bricoler sur place.</div></div>
-        <div class="qa"><div class="q">Qu'ai-je proposé ou décidé ?</div><div class="a">Concevoir l'infrastructure comme un socle réutilisable, sur lequel on peut poser plusieurs services, plutôt qu'une installation dédiée à un seul usage. Cette modularité est ce qui a permis d'enchaîner ensuite sur le déploiement de microservices.</div></div>
-        <div class="qa"><div class="q">En quoi est-ce généralisable ?</div><div class="a">La reproductibilité et la modularité sont au cœur des pratiques DevOps actuelles. Savoir construire un socle sur lequel les services se déploient proprement est directement transférable au monde professionnel du cloud et de l'exploitation d'infrastructures.</div></div>
+        <div class="qa"><div class="q">Quelle difficulté ai-je rencontrée ?</div><div class="a">Deux, à des moments différents. En SAÉ, passer d'une logique « une machine = un service installé à la main » à une logique modulaire et reproductible : je configurais encore tout manuellement, ce qui rendait le résultat difficile à reproduire ailleurs. En stage, la difficulté a changé de nature : il ne s'agissait plus de faire fonctionner une infrastructure, mais de démontrer qu'elle <em>continue</em> de fonctionner quand quelque chose tombe — et de le prouver, pas de l'affirmer.</div></div>
+        <div class="qa"><div class="q">Comment l'ai-je dépassée ?</div><div class="a">Pour la première, en m'appuyant sur ce que j'avais appris sur OnionRouter — où le README permettait de réinstaller le projet pas à pas — j'ai pris l'habitude de penser « déploiement reproductible » dès le départ. Pour la seconde, en construisant un cahier de recette : formuler chaque exigence sous forme de test avec un résultat attendu, puis l'exécuter. Ce qui restait flou dans ma tête est devenu vérifiable — 46 tests, dont la simulation d'une panne de nœud et la restauration effective d'une machine sauvegardée.</div></div>
+        <div class="qa"><div class="q">Qu'ai-je proposé ou décidé ?</div><div class="a">Deux décisions me semblent significatives. D'abord, avoir mis en place les notifications par e-mail des sauvegardes, qui n'étaient pas demandées initialement : une sauvegarde dont personne ne vérifie le résultat n'est pas une sauvegarde. Ensuite, avoir documenté neuf points de vigilance — les limites que j'ai rencontrées, comme les conteneurs LXC non pris en charge par la solution applicative de sauvegarde. Signaler ce qui ne fonctionne pas est plus utile, pour qui reprendra le dossier, que de ne présenter que ce qui marche.</div></div>
+        <div class="qa"><div class="q">En quoi est-ce généralisable ?</div><div class="a">La reproductibilité et la modularité sont au cœur des pratiques d'exploitation actuelles, et se transposent d'un hyperviseur à l'autre : ce que j'ai appris sur Proxmox — quorum, stockage partagé, bascule, sauvegarde vérifiée — décrit un raisonnement, pas un produit. Plus largement, j'en retiens une habitude : ne considérer une infrastructure comme livrée que lorsqu'elle est testée et documentée pour quelqu'un d'autre que soi.</div></div>
       </div>
     </div>
   </section>

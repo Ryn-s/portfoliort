@@ -69,8 +69,18 @@
         <li><strong>Mail</strong> : service SMTP + IMAP, comptes admin et client, testés au protocole en se connectant via Telnet et commandes SMTP.</li>
         <li><strong>Annuaire</strong> : déploiement d'<strong>Active Directory</strong> sur le serveur Windows et validation par l'ajout d'un utilisateur connecté depuis un poste du domaine.</li>
       </ul>
+      <h3>En entreprise — administration d’une infrastructure réelle</h3>
+      <p>Mon stage de 2<sup>e</sup> année chez <strong>NXO Telecom</strong> a déplacé cette compétence du laboratoire vers une infrastructure matérielle destinée à préfigurer une production :</p>
+      <ul>
+        <li><strong>Installation et exploitation de deux hyperviseurs</strong> Proxmox VE sur serveurs physiques, avec stockage ZFS en RAID-Z1 et intégration d’un NAS Synology en NFS.</li>
+        <li><strong>Sauvegarde et restauration</strong> : jobs vzdump planifiés vers le NAS, notifications par e-mail du résultat, et restauration effective d’une machine vérifiée par son démarrage.</li>
+        <li><strong>Administration par l’API</strong> : conception d’un outil en ligne de commande Python pilotant le cluster (inventaire, déploiement, cycle de vie, sauvegarde), avec authentification par jeton à droits restreints.</li>
+        <li><strong>Documentation d’exploitation</strong> : procédures pas à pas, cahier de recette de 46 tests et rapport de recommandations, destinés à quelqu’un d’autre que leur auteur.</li>
+      </ul>
     </div>
     <div class="evidence">
+      <div class="ev"><div class="t">Cluster Proxmox VE en production simulée</div><div class="d">Stage NXO Telecom — deux hyperviseurs, stockage partagé, sauvegarde planifiée et supervision par notifications.</div></div>
+      <div class="ev"><div class="t">Outil d’administration en Python</div><div class="d">Automatisation via l’API REST de Proxmox : 40 tests unitaires, mode simulation, jeton à privilèges séparés. Dépôt public documenté.</div></div>
       <div class="ev"><div class="t">Maquette EVE-NG &amp; rapport de SAÉ</div><div class="d">Plan d'adressage argumenté, configurations des équipements clés et captures de tests commentées.</div></div>
       <div class="ev"><div class="t">Tests de validation</div><div class="d">Vérification du filtrage SSH par masque réseau, du transfert de zone DNSSEC et de la résolution intranet/public.</div></div>
     </div>
@@ -126,6 +136,16 @@
   <section class="subsection reveal">
     <h2><span class="marker">04</span> Lien avec le référentiel</h2>
     <p class="prose" style="color:var(--text-dim)">L'unité d'évaluation n'est pas l'apprentissage critique (AC) lui-même, mais l'indicateur qui permet de valider tout ou partie d'un AC, jusqu'à remonter à la compétence globale.</p>
+    <div class="prose" style="margin-bottom:20px">
+      <p>Cette compétence correspond, dans le programme national du BUT R&amp;T, à <strong>« Administrer les réseaux et l’Internet »</strong>. Les situations décrites ci-dessus mobilisent les apprentissages critiques suivants :</p>
+    </div>
+    <div class="evidence" style="margin-bottom:24px">
+      <div class="ev"><div class="t">AC21.03 — Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée</div><div class="d">SAÉ : infrastructure mixte Linux/Windows sous QEMU. Stage NXO : deux hyperviseurs Proxmox VE et vingt machines virtuelles en exploitation.</div></div>
+      <div class="ev"><div class="t">AC21.04 — Déployer des services réseaux avancés</div><div class="d">SAÉ : DNS avec transfert de zone DNSSEC, messagerie SMTP/IMAP, Active Directory, le tout en ligne de commande.</div></div>
+      <div class="ev"><div class="t">AC31.01 — Concevoir un projet de réseau d’entreprise intégrant haute disponibilité, sécurité et supervision</div><div class="d">Stage NXO : cluster à haute disponibilité avec quorum tiers, filtrage réseau et supervision des sauvegardes par notifications.</div></div>
+      <div class="ev"><div class="t">AC31.02 — Réaliser la documentation technique du projet</div><div class="d">Stage NXO : seize livrables produits — procédures pas à pas, synoptiques, rapports de tests et recommandations.</div></div>
+      <div class="ev"><div class="t">AC31.03 — Réaliser une maquette de démonstration du projet</div><div class="d">Stage NXO : l’objet même de la mission — une maquette complète, recettée par 46 tests, préfigurant une mise en production.</div></div>
+    </div>
     <div class="ref-tree">
       <svg class="svg-tree" viewBox="0 0 760 300" role="img" aria-label="Arbre de la compétence Administrer">
         <!-- edges -->
@@ -178,7 +198,7 @@
         <div class="qa"><div class="q">Quelle difficulté ai-je rencontrée ?</div><div class="a">Le travail intégral en ligne de commande, sans interface graphique, m'a d'abord ralenti : une faute de syntaxe dans un fichier de zone DNS faisait échouer tout le service sans message clair. J'ai dû apprendre à lire les journaux et à tester service par service plutôt que de tout lancer d'un coup.</div></div>
         <div class="qa"><div class="q">Comment l'ai-je dépassée ?</div><div class="a">J'ai adopté une méthode incrémentale : valider chaque brique isolément (DNS, puis Web, puis mail) avant de la connecter aux autres, et tester au protocole — par exemple parler en SMTP via Telnet pour vérifier le mail sans dépendre d'un client. Cette discipline du « petit pas vérifié » a transformé ma façon de déboguer.</div></div>
         <div class="qa"><div class="q">Qu'ai-je proposé ou décidé ?</div><div class="a">Pour le transfert de zone, j'ai mis en place DNSSEC afin de chiffrer les échanges entre primaire et secondaire, et un filtrage qui n'autorise le SSH que depuis les machines du même masque réseau — en renvoyant un TCP reset aux autres pour brouiller les scans de ports.</div></div>
-        <div class="qa"><div class="q">En quoi est-ce généralisable ?</div><div class="a">Concevoir des services avec le moindre privilège (n'ouvrir que le trafic nécessaire), valider de façon incrémentale et chiffrer les échanges internes sont des réflexes que je réutilise sur n'importe quelle infrastructure — c'est exactement ce que j'irai appliquer pendant mon stage d'administrateur réseau.</div></div>
+        <div class="qa"><div class="q">En quoi est-ce généralisable ?</div><div class="a">Concevoir des services avec le moindre privilège (n'ouvrir que le trafic nécessaire), valider de façon incrémentale et chiffrer les échanges internes sont des réflexes que je réutilise sur n'importe quelle infrastructure — je les ai précisément réappliqués pendant mon stage, en restreignant au strict nécessaire les droits du jeton d'API pilotant le cluster Proxmox.</div></div>
       </div>
     </div>
   </section>
