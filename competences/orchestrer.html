@@ -7,10 +7,21 @@
 <meta name="description" content="Compétence Coordonner des infrastructures modulaires — BUT R&T 2e année, parcours DevCloud.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2330d158'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Portfolio — Rayan Saoud">
+<meta property="og:title" content="Orchestrer — Portfolio Rayan SAOUD">
+<meta property="og:description" content="Compétence Coordonner des infrastructures modulaires — BUT R&T 2e année, parcours DevCloud.">
+<meta property="og:url" content="https://ryn-s.github.io/portfoliort/">
+<meta property="og:image" content="https://ryn-s.github.io/portfoliort/assets/img/preview.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+<div class="glow" aria-hidden="true"></div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -53,7 +64,7 @@
   <section class="subsection reveal">
     <h2><span class="marker">02</span> Actions, traces &amp; preuves</h2>
     <div class="prose">
-      <h3 style="margin-top:0">En formation — le socle</h3>
+      <h3>En formation — le socle</h3>
       <ul>
         <li><strong>Infrastructure virtualisée</strong> : mise en place d'un environnement hébergeant des services mutualisés, socle réutilisable plutôt qu'installation jetable.</li>
         <li><strong>Conteneurisation</strong> : prise en main des fondamentaux (isolation, image, conteneur) pour packager un service et le redéployer à l'identique d'une machine à l'autre.</li>
@@ -80,9 +91,9 @@
       <div class="ev"><div class="t">Déploiement conteneurisé</div><div class="d">Application microservices orchestrée avec Docker Compose dans un environnement virtualisé (SAÉ 4.DevCloud.01).</div></div>
       <div class="ev"><div class="t">Infrastructure virtualisée</div><div class="d">SAÉ DevCloud.04 — environnement de services mutualisés.</div></div>
     </div>
-    <figure style="margin:24px 0 0">
-      <img src="../assets/img/archi-microservices.svg" alt="Architecture microservices conteneurisée" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
-      <figcaption style="font-family:var(--mono);font-size:0.78rem;color:var(--text-faint);margin-top:10px;text-align:center">Services conteneurisés orchestrés ensemble via Docker Compose — partie infrastructure dont je me suis chargé.</figcaption>
+    <figure class="figure">
+      <img src="../assets/img/archi-microservices.svg" alt="Architecture microservices conteneurisée">
+      <figcaption>Services conteneurisés orchestrés ensemble via Docker Compose — partie infrastructure dont je me suis chargé.</figcaption>
     </figure>
   </section>
 
@@ -109,13 +120,13 @@
 
   <section class="subsection reveal">
     <h2><span class="marker">04</span> Lien avec le référentiel</h2>
-    <div class="prose" style="margin-bottom:20px">
+    <div class="prose lead-in">
       <p>Cette compétence correspond, dans le programme national du BUT R&amp;T, à la compétence <strong>« Coordonner des infrastructures modulaires »</strong> du parcours DevCloud. Les situations décrites ci-dessus couvrent les apprentissages critiques suivants :</p>
     </div>
-    <div class="evidence" style="margin-bottom:24px">
-      <div class="ev"><div class="t">AC34.01 — Concevoir, administrer et superviser une infrastructure Cloud</div><div class="d">Conception et déploiement du cluster Proxmox VE de bout en bout : installation des nœuds, intégration du stockage NAS, mise en place du suivi par notifications e-mail des sauvegardes.</div></div>
-      <div class="ev"><div class="t">AC34.02 — Orchestrer les ressources Cloud</div><div class="d">Haute disponibilité avec basculement automatique, et rééquilibrage dynamique de la charge entre nœuds par le planificateur de ressources du cluster.</div></div>
-      <div class="ev"><div class="t">AC34.03 — Investiguer sur les incidents et les résoudre</div><div class="d">Diagnostic et résolution d'incidents rencontrés en conditions réelles : conteneurs LXC non pris en charge par la solution de sauvegarde applicative, version d'hyperviseur hors matrice de compatibilité, authentification refusée sur un compte mal formé. Neuf points de vigilance formalisés.</div></div>
+    <div class="ac-list lead-in">
+      <div class="ac"><div class="ac-code">AC34.01</div><div><div class="ac-label">Concevoir, administrer et superviser une infrastructure Cloud</div><div class="ac-proof">Conception et déploiement du cluster Proxmox VE de bout en bout : installation des nœuds, intégration du stockage NAS, mise en place du suivi par notifications e-mail des sauvegardes.</div></div></div>
+      <div class="ac"><div class="ac-code">AC34.02</div><div><div class="ac-label">Orchestrer les ressources Cloud</div><div class="ac-proof">Haute disponibilité avec basculement automatique, et rééquilibrage dynamique de la charge entre nœuds par le planificateur de ressources du cluster.</div></div></div>
+      <div class="ac"><div class="ac-code">AC34.03</div><div><div class="ac-label">Investiguer sur les incidents et les résoudre</div><div class="ac-proof">Diagnostic et résolution d'incidents rencontrés en conditions réelles : conteneurs LXC non pris en charge par la solution de sauvegarde applicative, version d'hyperviseur hors matrice de compatibilité, authentification refusée sur un compte mal formé. Neuf points de vigilance formalisés.</div></div></div>
       <div class="ev"><div class="t">Fondamentaux de la conteneurisation et du déploiement modulaire</div><div class="d">SAÉ DevCloud : packaging de services en conteneurs et déploiement d'une application découpée en microservices.</div></div>
     </div>
     <div class="ref-tree">
@@ -163,7 +174,7 @@
     </div>
   </section>
 
-  <div class="hero-cta reveal" style="margin:8px 0 48px">
+  <div class="hero-cta cta-band reveal">
     <a href="developper.html" class="btn btn-primary">Compétence suivante : Développer →</a>
     <a href="../index.html#competences" class="btn">← Toutes les compétences</a>
   </div>
@@ -172,7 +183,8 @@
 <footer>
   <div class="wrap foot-inner">
     <div class="copy">© 2026 Rayan SAOUD · Portfolio BUT R&amp;T S4</div>
-    <div class="foot-links"><a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
+    <div class="foot-links"><a href="../index.html#stage">Stage</a>
+      <a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
   </div>
 </footer>
 

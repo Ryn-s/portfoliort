@@ -7,10 +7,21 @@
 <meta name="description" content="Compétence Administrer les réseaux et l'Internet — BUT R&T 2e année.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2330d158'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Portfolio — Rayan Saoud">
+<meta property="og:title" content="Administrer — Portfolio Rayan SAOUD">
+<meta property="og:description" content="Compétence Administrer les réseaux et l'Internet — BUT R&T 2e année.">
+<meta property="og:url" content="https://ryn-s.github.io/portfoliort/">
+<meta property="og:image" content="https://ryn-s.github.io/portfoliort/assets/img/preview.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+<div class="glow" aria-hidden="true"></div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -84,39 +95,39 @@
       <div class="ev"><div class="t">Maquette EVE-NG &amp; rapport de SAÉ</div><div class="d">Plan d'adressage argumenté, configurations des équipements clés et captures de tests commentées.</div></div>
       <div class="ev"><div class="t">Tests de validation</div><div class="d">Vérification du filtrage SSH par masque réseau, du transfert de zone DNSSEC et de la résolution intranet/public.</div></div>
     </div>
-    <figure style="margin:24px 0 0">
-      <img src="../assets/img/topologie-multisite.svg" alt="Topologie du réseau multi-sites" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
-      <figcaption style="font-family:var(--mono);font-size:0.78rem;color:var(--text-faint);margin-top:10px;text-align:center">Architecture du réseau multi-sites — LAN, services et interconnexion.</figcaption>
+    <figure class="figure">
+      <img src="../assets/img/topologie-multisite.svg" alt="Topologie du réseau multi-sites">
+      <figcaption>Architecture du réseau multi-sites — LAN, services et interconnexion.</figcaption>
     </figure>
-    <figure style="margin:24px 0 0">
-      <img src="../assets/img/firewall-raspberry.svg" alt="Pare-feu sur Raspberry Pi" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
-      <figcaption style="font-family:var(--mono);font-size:0.78rem;color:var(--text-faint);margin-top:10px;text-align:center">Projet personnel — pare-feu Raspberry Pi (iptables/nftables, OpenVPN), illustrant l'administration sécurisée.</figcaption>
+    <figure class="figure">
+      <img src="../assets/img/firewall-raspberry.svg" alt="Pare-feu sur Raspberry Pi">
+      <figcaption>Projet personnel — pare-feu Raspberry Pi (iptables/nftables, OpenVPN), illustrant l'administration sécurisée.</figcaption>
     </figure>
 
-    <h3 style="margin-top:32px">Captures réelles du labo</h3>
+    <h3 class="stack-lg">Captures réelles du labo</h3>
     <div class="captures">
       <figure class="capture">
-        <img src="../assets/img/captures/dns-zone-nano.png" alt="Fichier de zone DNS db.ucexchange.com édité sous nano">
+        <img src="../assets/img/captures/dns-zone-nano.png" alt="Fichier de zone DNS db.ucexchange.com édité sous nano" width="1028" height="823">
         <figcaption><strong>Fichier de zone DNS</strong>Configuration de <code>/etc/bind/db.ucexchange.com</code> : SOA, NS, MX et enregistrements A pour le domaine ucexchange.com.<span class="badge-real">capture réelle · QEMU/Debian</span></figcaption>
       </figure>
       <figure class="capture">
-        <img src="../assets/img/captures/dnssec-nsec3.png" alt="Enregistrements DNSSEC NSEC3 et RRSIG">
+        <img src="../assets/img/captures/dnssec-nsec3.png" alt="Enregistrements DNSSEC NSEC3 et RRSIG" width="1042" height="601">
         <figcaption><strong>DNSSEC — signature de zone</strong>Enregistrements NSEC3 et RRSIG générés : le transfert de zone est chiffré et authentifié.<span class="badge-real">capture réelle · DNSSEC</span></figcaption>
       </figure>
       <figure class="capture">
-        <img src="../assets/img/captures/ss-services.png" alt="Sortie de ss -tulpn montrant les services en écoute">
+        <img src="../assets/img/captures/ss-services.png" alt="Sortie de ss -tulpn montrant les services en écoute" width="1031" height="356">
         <figcaption><strong>Services en écoute</strong><code>ss -tulpn</code> : named (DNS:53), dovecot (IMAP:143, POP:110), apache2 (HTTP:80) et master (SMTP:25) actifs sur le serveur.<span class="badge-real">capture réelle</span></figcaption>
       </figure>
       <figure class="capture">
-        <img src="../assets/img/captures/iptables-rules.png" alt="Règles iptables affichées">
+        <img src="../assets/img/captures/iptables-rules.png" alt="Règles iptables affichées" width="955" height="946">
         <figcaption><strong>Filtrage iptables</strong>Règles INPUT : SSH limité au 10.242.10.0/24, ouverture maîtrisée des ports 53/80/25/143/110, et reject tcp-reset sur le SSH non autorisé.<span class="badge-real">capture réelle</span></figcaption>
       </figure>
       <figure class="capture">
-        <img src="../assets/img/captures/qemu-linux-windows.png" alt="Linux Debian et Windows Server 2019 côte à côte dans QEMU">
+        <img src="../assets/img/captures/qemu-linux-windows.png" alt="Linux Debian et Windows Server 2019 côte à côte dans QEMU" width="1861" height="867">
         <figcaption><strong>Infrastructure mixte</strong>Serveur Linux Debian (services) et Windows Server 2019 (DNS primaire / Active Directory) tournant en parallèle sous QEMU.<span class="badge-real">capture réelle</span></figcaption>
       </figure>
       <figure class="capture">
-        <img src="../assets/img/captures/dns-zone-ping.png" alt="Zone DNS et test de ping">
+        <img src="../assets/img/captures/dns-zone-ping.png" alt="Zone DNS et test de ping" width="1029" height="859">
         <figcaption><strong>Test de résolution</strong>Vérification de la zone et test de connectivité depuis le serveur de noms.<span class="badge-real">capture réelle</span></figcaption>
       </figure>
     </div>
@@ -135,16 +146,16 @@
   <!-- REFERENTIEL -->
   <section class="subsection reveal">
     <h2><span class="marker">04</span> Lien avec le référentiel</h2>
-    <p class="prose" style="color:var(--text-dim)">L'unité d'évaluation n'est pas l'apprentissage critique (AC) lui-même, mais l'indicateur qui permet de valider tout ou partie d'un AC, jusqu'à remonter à la compétence globale.</p>
-    <div class="prose" style="margin-bottom:20px">
+    <p class="prose note">L'unité d'évaluation n'est pas l'apprentissage critique (AC) lui-même, mais l'indicateur qui permet de valider tout ou partie d'un AC, jusqu'à remonter à la compétence globale.</p>
+    <div class="prose lead-in">
       <p>Cette compétence correspond, dans le programme national du BUT R&amp;T, à <strong>« Administrer les réseaux et l’Internet »</strong>. Les situations décrites ci-dessus mobilisent les apprentissages critiques suivants :</p>
     </div>
-    <div class="evidence" style="margin-bottom:24px">
-      <div class="ev"><div class="t">AC21.03 — Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée</div><div class="d">SAÉ : infrastructure mixte Linux/Windows sous QEMU. Stage NXO : deux hyperviseurs Proxmox VE et vingt machines virtuelles en exploitation.</div></div>
-      <div class="ev"><div class="t">AC21.04 — Déployer des services réseaux avancés</div><div class="d">SAÉ : DNS avec transfert de zone DNSSEC, messagerie SMTP/IMAP, Active Directory, le tout en ligne de commande.</div></div>
-      <div class="ev"><div class="t">AC31.01 — Concevoir un projet de réseau d’entreprise intégrant haute disponibilité, sécurité et supervision</div><div class="d">Stage NXO : cluster à haute disponibilité avec quorum tiers, filtrage réseau et supervision des sauvegardes par notifications.</div></div>
-      <div class="ev"><div class="t">AC31.02 — Réaliser la documentation technique du projet</div><div class="d">Stage NXO : seize livrables produits — procédures pas à pas, synoptiques, rapports de tests et recommandations.</div></div>
-      <div class="ev"><div class="t">AC31.03 — Réaliser une maquette de démonstration du projet</div><div class="d">Stage NXO : l’objet même de la mission — une maquette complète, recettée par 46 tests, préfigurant une mise en production.</div></div>
+    <div class="ac-list lead-in">
+      <div class="ac"><div class="ac-code">AC21.03</div><div><div class="ac-label">Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée</div><div class="ac-proof">SAÉ : infrastructure mixte Linux/Windows sous QEMU. Stage NXO : deux hyperviseurs Proxmox VE et vingt machines virtuelles en exploitation.</div></div></div>
+      <div class="ac"><div class="ac-code">AC21.04</div><div><div class="ac-label">Déployer des services réseaux avancés</div><div class="ac-proof">SAÉ : DNS avec transfert de zone DNSSEC, messagerie SMTP/IMAP, Active Directory, le tout en ligne de commande.</div></div></div>
+      <div class="ac"><div class="ac-code">AC31.01</div><div><div class="ac-label">Concevoir un projet de réseau d’entreprise intégrant haute disponibilité, sécurité et supervision</div><div class="ac-proof">Stage NXO : cluster à haute disponibilité avec quorum tiers, filtrage réseau et supervision des sauvegardes par notifications.</div></div></div>
+      <div class="ac"><div class="ac-code">AC31.02</div><div><div class="ac-label">Réaliser la documentation technique du projet</div><div class="ac-proof">Stage NXO : seize livrables produits — procédures pas à pas, synoptiques, rapports de tests et recommandations.</div></div></div>
+      <div class="ac"><div class="ac-code">AC31.03</div><div><div class="ac-label">Réaliser une maquette de démonstration du projet</div><div class="ac-proof">Stage NXO : l’objet même de la mission — une maquette complète, recettée par 46 tests, préfigurant une mise en production.</div></div></div>
     </div>
     <div class="ref-tree">
       <svg class="svg-tree" viewBox="0 0 760 300" role="img" aria-label="Arbre de la compétence Administrer">
@@ -203,7 +214,7 @@
     </div>
   </section>
 
-  <div class="hero-cta reveal" style="margin:8px 0 48px">
+  <div class="hero-cta cta-band reveal">
     <a href="connecter.html" class="btn btn-primary">Compétence suivante : Connecter →</a>
     <a href="../index.html#competences" class="btn">← Toutes les compétences</a>
   </div>
@@ -212,7 +223,8 @@
 <footer>
   <div class="wrap foot-inner">
     <div class="copy">© 2026 Rayan SAOUD · Portfolio BUT R&amp;T S4</div>
-    <div class="foot-links"><a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
+    <div class="foot-links"><a href="../index.html#stage">Stage</a>
+      <a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
   </div>
 </footer>
 

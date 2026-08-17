@@ -7,10 +7,21 @@
 <meta name="description" content="Portfolio de 2e année — BUT Réseaux & Télécommunications, parcours DevCloud, IUT de Colmar. Compétences validées en SAÉ et en stage (cluster Proxmox VE haute disponibilité chez NXO Telecom), mises en perspective avec le Programme National.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2330d158'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Portfolio — Rayan Saoud">
+<meta property="og:title" content="Rayan SAOUD — Portfolio BUT R&T · DevCloud">
+<meta property="og:description" content="Portfolio de 2e année — BUT Réseaux & Télécommunications, parcours DevCloud, IUT de Colmar. Compétences validées en SAÉ et en stage (cluster Proxmox VE haute disponibilité chez NXO Telecom), mises en perspective avec le Programme National.">
+<meta property="og:url" content="https://ryn-s.github.io/portfoliort/">
+<meta property="og:image" content="https://ryn-s.github.io/portfoliort/assets/img/preview.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<div class="glow" aria-hidden="true"></div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -18,6 +29,7 @@
     <button class="nav-toggle" aria-label="Menu">≡</button>
     <div class="nav-links">
       <a href="#presentation">Présentation</a>
+      <a href="#stage">Stage</a>
       <a href="#competences">Compétences</a>
       <a href="#projets">SAÉ &amp; Projets</a>
       <a href="#parcours">Parcours</a>
@@ -31,19 +43,66 @@
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">PORTFOLIO · BUT R&amp;T · 2<sup>e</sup>&nbsp;ANNÉE · S4</div>
-    <h1>Concevoir, déployer et superviser<br>des <span class="grad">infrastructures &amp; services</span> distribués.</h1>
-    <p class="lead">Étudiant en BUT Réseaux &amp; Télécommunications à l'IUT de Colmar, parcours <strong>Développement Système &amp; Cloud</strong>. Ce portfolio atteste de mes 5 compétences à travers mes SAÉ, mes projets et mon expérience professionnelle.</p>
+    <div class="eyebrow">Portfolio · BUT R&amp;T · 2<sup>e</sup> année · parcours DevCloud</div>
+    <h1>Concevoir, déployer et superviser<br>des <span class="grad">infrastructures et services</span><br>distribués.</h1>
+    <p class="lead">Étudiant en BUT Réseaux &amp; Télécommunications à l'IUT de Colmar, parcours <strong>Développement Système &amp; Cloud</strong>. Ce portfolio documente mes cinq compétences à travers mes SAÉ, mes projets et mon stage de 2<sup>e</sup> année chez NXO.</p>
     <div class="hero-cta">
-      <a href="#competences" class="btn btn-primary">Explorer les 5 compétences →</a>
-      <a href="#cv" class="btn">Voir mon CV</a>
+      <a href="#stage" class="btn btn-primary">Voir le stage</a>
+      <a href="#competences" class="btn">Les 5 compétences</a>
     </div>
 
-    <div class="status-strip reveal">
-      <div class="cell"><div class="k">Formation</div><div class="v">BUT R&amp;T <small>· DevCloud</small></div></div>
-      <div class="cell"><div class="k">Établissement</div><div class="v">IUT de Colmar</div></div>
-      <div class="cell"><div class="k">Stage S4</div><div class="v">Infra. Proxmox <small>· 6 sem.</small></div></div>
-      <div class="cell"><div class="k">Compétences</div><div class="v">5 <small>· validées</small></div></div>
+    <figure class="diagram reveal">
+      <svg viewBox="0 0 940 366" role="img" aria-label="Schéma de la maquette : routeur, switch à quatre VLAN, deux hyperviseurs en cluster et NAS partagé">
+        <!-- liaisons -->
+        <path class="d-edge" d="M470,64 L470,132"/>
+        <path class="d-edge" d="M420,196 C420,240 125,228 125,268"/>
+        <path class="d-edge" d="M470,196 C470,236 405,232 405,268"/>
+        <path class="d-edge" d="M520,196 C520,240 800,228 800,268"/>
+        <path class="d-edge-hi" d="M220,304 L310,304"/>
+        <path class="d-edge-hi" d="M500,304 L700,304"/>
+        <text class="d-tag" x="265" y="296" text-anchor="middle">corosync</text>
+        <text class="d-tag" x="600" y="296" text-anchor="middle">NFS partagé</text>
+
+        <!-- routeur -->
+        <rect class="d-box" x="376" y="8" width="188" height="56" rx="13"/>
+        <text class="d-name" x="470" y="32" text-anchor="middle">DrayTek Vigor</text>
+        <text class="d-sub"  x="470" y="50" text-anchor="middle">passerelle · filtrage</text>
+        <circle class="d-live" cx="546" cy="24" r="3.5"/>
+
+        <!-- switch -->
+        <rect class="d-box" x="330" y="132" width="280" height="64" rx="13"/>
+        <text class="d-name" x="470" y="160" text-anchor="middle">OmniSwitch 6450</text>
+        <text class="d-sub"  x="470" y="180" text-anchor="middle">VLAN 10 · 20 · 30 · 40</text>
+        <circle class="d-live" cx="592" cy="150" r="3.5"/>
+
+        <!-- noeud 1 -->
+        <rect class="d-box" x="30" y="268" width="190" height="72" rx="13"/>
+        <text class="d-name" x="125" y="300" text-anchor="middle">pve</text>
+        <text class="d-sub"  x="125" y="320" text-anchor="middle">Dell R620 · ZFS RAID-Z1</text>
+        <circle class="d-live d-pulse" cx="202" cy="288" r="9"/>
+        <circle class="d-live" cx="202" cy="288" r="3.5"/>
+
+        <!-- noeud 2 -->
+        <rect class="d-box" x="310" y="268" width="190" height="72" rx="13"/>
+        <text class="d-name" x="405" y="300" text-anchor="middle">pve-maquette</text>
+        <text class="d-sub"  x="405" y="320" text-anchor="middle">Dell R620 · ZFS RAID-Z1</text>
+        <circle class="d-live" cx="482" cy="288" r="3.5"/>
+
+        <!-- NAS -->
+        <rect class="d-box" x="700" y="268" width="200" height="72" rx="13"/>
+        <text class="d-name" x="800" y="300" text-anchor="middle">NAS Synology</text>
+        <text class="d-sub"  x="800" y="320" text-anchor="middle">stockage · sauvegarde · QDevice</text>
+        <circle class="d-live d-pulse" cx="882" cy="288" r="9"/>
+        <circle class="d-live" cx="882" cy="288" r="3.5"/>
+      </svg>
+      <figcaption>La maquette déployée chez NXO : deux hyperviseurs en cluster, un troisième vote porté par le NAS, quatre VLAN séparant administration, stockage, cluster et production.</figcaption>
+    </figure>
+
+    <div class="stats reveal">
+      <div class="stat"><span class="n">16</span><span class="l">livrables documentaires produits</span></div>
+      <div class="stat"><span class="n">46</span><span class="l">tests de recette, tous conformes</span></div>
+      <div class="stat"><span class="n">20</span><span class="l">machines virtuelles exploitées</span></div>
+      <div class="stat"><span class="n">4</span><span class="l">VLAN pour séparer les flux</span></div>
     </div>
   </div>
 </header>
@@ -61,7 +120,7 @@
         <p>Mon fil conducteur cette année : passer d'un réseau « qui marche » à un système <strong>conçu pour tenir la charge, la panne et l'évolution</strong> — du LAN commuté jusqu'au microservice déployé en environnement virtualisé.</p>
       </div>
       <div class="panel">
-        <h3 style="margin-top:0">Ce qui m'anime</h3>
+        <h3>Ce qui m'anime</h3>
         <div class="prose">
           <ul>
             <li><strong>Infrastructure réseau</strong> — architecture hiérarchique, haute disponibilité, routage opérateur.</li>
@@ -69,10 +128,68 @@
             <li><strong>Développement système</strong> — Python, architecture distribuée, microservices, API.</li>
           </ul>
         </div>
-        <div class="tags" style="margin-top:8px">
+        <div class="tags stack-sm">
           <span class="tag">Linux</span><span class="tag">Cisco IOS</span><span class="tag">EVE-NG</span>
           <span class="tag">Python</span><span class="tag">Docker</span><span class="tag">BGP / MPLS</span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGE ============ -->
+<section class="block" id="stage">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Situation professionnelle · juin – août 2026</div>
+      <h2>Stage de 2<sup>e</sup> année<br>chez NXO Telecom</h2>
+      <p>Intégrateur réseau et télécoms du groupe Fayat, site de Wittelsheim. Mission : concevoir, déployer et recetter une maquette d'infrastructure virtualisée en cluster, destinée à préfigurer une mise en production.</p>
+    </div>
+
+    <div class="feature reveal">
+      <div>
+        <h3>Haute disponibilité et bascule automatique</h3>
+        <p>Un cluster de deux nœuds ne suffit pas : à deux votants, la perte d'un serveur paralyse le survivant. J'ai ajouté un <strong>troisième vote porté par le NAS</strong>, puis provoqué délibérément la panne d'un nœud pour vérifier que les machines protégées redémarraient bien de l'autre côté.</p>
+        <p>Le cluster mesure aussi lui-même son déséquilibre de charge : j'ai observé une migration décidée sans mon intervention, ramenant l'écart de 37 % à 33 %.</p>
+        <div class="tags stack"><span class="tag">Proxmox VE</span><span class="tag">QDevice</span><span class="tag">Failover</span><span class="tag">CRS</span></div>
+      </div>
+      <figure class="shot">
+        <img src="assets/img/stage/ha-crs.png" alt="Interface Proxmox : état du cluster, ressources en haute disponibilité et déséquilibre de charge mesuré à 37 %" loading="lazy" width="1400" height="686">
+        <figcaption>Ressources sous haute disponibilité et rééquilibrage automatique en cours.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature feature-alt reveal">
+      <div>
+        <h3>Automatisation par l'API</h3>
+        <p>L'interface web convient à l'administration ponctuelle, pas aux gestes répétés. J'ai écrit un outil en <strong>Python</strong> qui parle à l'API de Proxmox : inventaire, déploiement de machines depuis un modèle, cycle de vie, sauvegarde et rapport d'exploitation.</p>
+        <p>Une commande remplace plusieurs minutes de manipulations — et une boucle de trois lignes déploie une série entière de machines identiques.</p>
+        <div class="tags stack"><span class="tag">Python</span><span class="tag">API REST</span><span class="tag">cloud-init</span><span class="tag">40 tests</span></div>
+      </div>
+      <figure class="shot">
+        <img src="assets/img/stage/deploy.png" alt="Terminal : déploiement automatisé d'une machine virtuelle, clonage en 24,6 secondes puis configuration et démarrage" loading="lazy" width="1400" height="264">
+        <figcaption>Déploiement complet d'une machine : clonage, configuration, démarrage.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature reveal">
+      <div>
+        <h3>Sauvegarde et supervision</h3>
+        <p>Une sauvegarde dont personne ne vérifie le résultat n'est pas une sauvegarde. Ce volet ne figurait pas dans la commande initiale ; il m'a semblé nécessaire de l'ajouter.</p>
+        <p>Chaque exécution planifiée envoie désormais un compte rendu par courriel : machines traitées, durée, volume, statut. Le rapport d'exploitation que j'ai écrit a par ailleurs révélé <strong>douze machines sans aucune sauvegarde</strong> sur le stockage analysé.</p>
+        <div class="tags stack"><span class="tag">vzdump</span><span class="tag">Veeam B&amp;R</span><span class="tag">SMTP</span><span class="tag">Supervision</span></div>
+      </div>
+      <figure class="shot">
+        <img src="assets/img/stage/notification-mail.png" alt="Courriel de fin de sauvegarde envoyé par Proxmox : machines traitées, durée et volume" loading="lazy" width="1400" height="511">
+        <figcaption>Compte rendu automatique reçu à la fin de chaque sauvegarde planifiée.</figcaption>
+      </figure>
+    </div>
+
+    <div class="panel reveal stack-lg">
+      <div class="prose">
+        <h3>Ce que j'en retiens</h3>
+        <p>En cours, une manipulation réussie clôt le travail. Ici, elle le commençait : il fallait ensuite prouver que ça fonctionnait, dans quelles conditions, et jusqu'où. Le cahier de recette — <strong>46 tests, tous conformes</strong> — m'a appris à transformer une intuition en question à laquelle on répond par oui ou par non.</p>
+        <p class="mb-0">J'y ai joint <strong>neuf points de vigilance</strong> : les limites rencontrées et les écarts aux préconisations de l'éditeur. Signaler ce qui ne fonctionne pas est plus utile, pour qui reprendra le dossier, que de ne présenter que ce qui marche.</p>
       </div>
     </div>
   </div>
@@ -136,17 +253,47 @@
     </div>
   </div>
 
-    <div class="panel reveal" style="margin-top:28px">
+    <div class="panel reveal stack-lg">
       <div class="prose">
-        <h3 style="margin-top:0">Le stage au regard du Programme National</h3>
-        <p style="margin-bottom:14px">Le contrat pédagogique demande de mettre les compétences acquises en stage « en perspective avec celles définies dans le programme national du BUT R&amp;T ». Voici cette correspondance en synthèse — chaque fiche de compétence la détaille avec ses preuves :</p>
-        <ul style="margin-bottom:6px">
-          <li><strong>Orchestrer</strong> · <a href="competences/orchestrer.html">AC34.01, AC34.02, AC34.03</a> — concevoir, administrer et superviser une infrastructure Cloud ; orchestrer ses ressources ; investiguer et résoudre les incidents. <em>Cluster Proxmox HA, rééquilibrage automatique, 9 points de vigilance.</em></li>
-          <li><strong>Administrer</strong> · <a href="competences/administrer.html">AC21.03, AC31.01, AC31.02, AC31.03</a> — déployer des solutions virtualisées ; concevoir un projet intégrant haute disponibilité, sécurité et supervision ; le documenter ; en réaliser la maquette. <em>La mission de stage elle-même : maquette recettée par 46 tests, 16 livrables.</em></li>
-          <li><strong>Connecter</strong> · <a href="competences/connecter.html">AC32.04</a> (en partie) — encadrer l'accès aux ressources du système d'information. <em>Segmentation en quatre VLAN et filtrage inter-VLAN.</em></li>
-          <li><strong>Programmer</strong> · <a href="competences/programmer.html">AC23.01</a> — automatiser l'administration système avec des scripts. <em>Outil pvetool en Python, validé sur le cluster réel.</em></li>
-          <li><strong>Développer</strong> · <a href="competences/developper.html">AC25.03</a> — programmer son réseau par le code. <em>Infrastructure pilotée par l'API, sans interface graphique.</em></li>
-        </ul>
+        <h3>Le stage au regard du programme national</h3>
+        <p class="mb-0">Le contrat pédagogique demande de mettre les compétences acquises en stage « en perspective avec celles définies dans le programme national du BUT&nbsp;R&amp;T ». Voici la correspondance ; chaque fiche la détaille avec ses preuves.</p>
+      </div>
+      <div class="ac-list stack">
+        <div class="ac">
+          <div class="ac-code">Orchestrer</div>
+          <div>
+            <div class="ac-label">AC34.01 · AC34.02 · AC34.03 — concevoir, administrer et superviser une infrastructure Cloud ; orchestrer ses ressources ; investiguer et résoudre les incidents</div>
+            <div class="ac-proof">Cluster Proxmox à haute disponibilité, rééquilibrage automatique de charge, neuf points de vigilance documentés. <a href="competences/orchestrer.html">Voir la fiche</a></div>
+          </div>
+        </div>
+        <div class="ac">
+          <div class="ac-code">Administrer</div>
+          <div>
+            <div class="ac-label">AC21.03 · AC31.01 · AC31.02 · AC31.03 — déployer des solutions virtualisées ; concevoir un projet intégrant haute disponibilité, sécurité et supervision ; le documenter ; en réaliser la maquette</div>
+            <div class="ac-proof">La mission de stage elle-même : maquette recettée par 46 tests, seize livrables produits. <a href="competences/administrer.html">Voir la fiche</a></div>
+          </div>
+        </div>
+        <div class="ac ac-partial">
+          <div class="ac-code">Connecter</div>
+          <div>
+            <div class="ac-label">AC32.04 (en partie) — encadrer l’accès aux ressources du système d’information</div>
+            <div class="ac-proof">Segmentation en quatre VLAN et filtrage inter-VLAN sur routeur. <a href="competences/connecter.html">Voir la fiche</a></div>
+          </div>
+        </div>
+        <div class="ac">
+          <div class="ac-code">Programmer</div>
+          <div>
+            <div class="ac-label">AC23.01 — automatiser l’administration système avec des scripts</div>
+            <div class="ac-proof">Outil pvetool en Python, validé sur le cluster réel. <a href="competences/programmer.html">Voir la fiche</a></div>
+          </div>
+        </div>
+        <div class="ac">
+          <div class="ac-code">Développer</div>
+          <div>
+            <div class="ac-label">AC25.03 — programmer son réseau par le code</div>
+            <div class="ac-proof">Infrastructure pilotée par l’API, sans interface graphique. <a href="competences/developper.html">Voir la fiche</a></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -171,7 +318,7 @@
         <div class="head"><h3>OnionRouter</h3><span class="badge">SAÉ 3.02 · binôme</span></div>
         <p>Réseau de routeurs virtuels permettant une communication anonyme par chiffrement en couches. Implémentation RSA <em>« maison »</em> (sans librairie crypto), architecture distribuée et interface de supervision.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">RSA manuel</span><span class="tag">PyQt5</span><span class="tag">MariaDB</span></div>
-        <p style="margin-top:14px;margin-bottom:0"><a href="https://github.com/Ryn-s/Onion_Router" target="_blank" rel="noopener">→ Dépôt GitHub</a> · <a href="https://youtu.be/nkGbUICb_v0" target="_blank" rel="noopener">→ Démo vidéo</a></p>
+        <p class="card-note"><a href="https://github.com/Ryn-s/Onion_Router" target="_blank" rel="noopener">→ Dépôt GitHub</a> · <a href="https://youtu.be/nkGbUICb_v0" target="_blank" rel="noopener">→ Démo vidéo</a></p>
       </div>
 
       <div class="proj reveal">
@@ -184,7 +331,7 @@
         <div class="head"><h3>Gestion bancaire en microservices</h3><span class="badge">SAÉ 4.DevCloud.01</span></div>
         <p>Application de gestion bancaire découpée en microservices : API d'authentification, opérations clients, validation par agent et journalisation via un service de messagerie.</p>
         <div class="tags"><span class="tag">Microservices</span><span class="tag">API REST</span><span class="tag">Auth</span><span class="tag">Logs</span></div>
-        <p style="margin-top:14px;margin-bottom:0"><a href="competences/fiches-sae.html">→ Voir les 3 fiches SAÉ (suivi · journal · synthèse)</a></p>
+        <p class="card-note"><a href="competences/fiches-sae.html">→ Voir les 3 fiches SAÉ (suivi · journal · synthèse)</a></p>
       </div>
 
       <div class="proj reveal">
@@ -203,7 +350,7 @@
         <div class="head"><h3>Stage — Infrastructure virtualisée en cluster</h3><span class="badge">situation pro · 6 sem.</span></div>
         <p>Conception et déploiement d'une maquette <strong>Proxmox VE en cluster</strong> chez <strong>NXO Telecom</strong> (groupe Fayat) : haute disponibilité, stockage NAS externe, segmentation VLAN et étude de compatibilité Veeam. <strong>46 tests de recette</strong> conformes et 16 livrables documentaires produits.</p>
         <div class="tags"><span class="tag">Proxmox VE</span><span class="tag">Cluster / HA</span><span class="tag">NAS / NFS</span><span class="tag">Veeam</span><span class="tag">VLAN</span></div>
-        <p style="margin-top:14px;margin-bottom:0"><a href="competences/orchestrer.html">→ Voir la compétence Orchestrer</a></p>
+        <p class="card-note"><a href="competences/orchestrer.html">→ Voir la compétence Orchestrer</a></p>
       </div>
 
     </div>
@@ -219,7 +366,7 @@
     </div>
     <div class="grid-2 reveal">
       <div class="panel">
-        <h3 style="margin-top:0">Formation</h3>
+        <h3>Formation</h3>
         <div class="cv-item">
           <div class="it-head"><span class="it-title">BUT Réseaux &amp; Télécommunications</span><span class="it-date">2024 — auj.</span></div>
           <div class="it-sub">IUT de Colmar · parcours DevCloud (2<sup>e</sup> année)</div>
@@ -230,7 +377,7 @@
         </div>
       </div>
       <div class="panel">
-        <h3 style="margin-top:0">Expérience professionnelle</h3>
+        <h3>Expérience professionnelle</h3>
         <div class="cv-item">
           <div class="it-head"><span class="it-title">Stagiaire — infrastructure virtualisée</span><span class="it-date">juin–août 2026</span></div>
           <div class="it-sub">NXO Telecom (groupe Fayat) · Wittelsheim · 6 semaines</div>
@@ -258,17 +405,17 @@
 
     <div class="grid-2 reveal">
       <div class="panel prose">
-        <h3 style="margin-top:0">Ce que je recherche</h3>
+        <h3>Ce que je recherche</h3>
         <p>Mon stage de 2<sup>e</sup> année a confirmé une orientation : je veux travailler sur <strong>l'infrastructure et son exploitation</strong> — virtualisation, stockage, haute disponibilité, sauvegarde — plutôt que sur le développement applicatif seul.</p>
         <p>Je vise un stage où l'on m'aura confié un périmètre technique réel, avec de l'automatisation à la clé : administration d'un parc virtualisé, déploiement automatisé, ou exploitation d'une infrastructure cloud ou hébergée.</p>
-        <div class="tags" style="margin-top:8px">
+        <div class="tags stack-sm">
           <span class="tag">Virtualisation</span><span class="tag">Cloud / hébergement</span>
           <span class="tag">Automatisation</span><span class="tag">Exploitation / supervision</span>
         </div>
       </div>
 
       <div class="panel prose">
-        <h3 style="margin-top:0">Ce que j'apporte</h3>
+        <h3>Ce que j'apporte</h3>
         <ul>
           <li>Une expérience concrète de <strong>déploiement d'infrastructure en entreprise</strong>, du matériel à la documentation d'exploitation.</li>
           <li>L'habitude de <strong>documenter et de faire recetter</strong> ce que je livre — 16 livrables et 46 tests formalisés sur mon stage de 2<sup>e</sup> année.</li>
@@ -277,8 +424,8 @@
       </div>
     </div>
 
-    <div class="section-head reveal" style="margin-top:34px">
-      <h3 style="font-size:1.05rem">Entreprises visées</h3>
+    <div class="section-head reveal stack-lg">
+      <h3>Entreprises visées</h3>
     </div>
     <div class="proj-grid reveal">
 
@@ -320,10 +467,10 @@
 
     </div>
 
-    <div class="panel reveal" style="margin-top:20px">
+    <div class="panel reveal stack-lg">
       <div class="prose">
         <p><strong>Démarche engagée</strong> — candidatures spontanées ciblées dès la rentrée de septembre, en priorité sur l'axe Colmar – Mulhouse – Strasbourg, avec ouverture nationale pour les opérateurs cloud. Le présent portfolio et mes dépôts publics servent de support de candidature.</p>
-        <p style="margin-bottom:0"><strong>Critère de sélection</strong> — je privilégie les structures où l'infrastructure est exploitée en interne plutôt que sous-traitée : c'est la condition pour qu'un stagiaire touche réellement à la virtualisation, au stockage et à la sauvegarde, au lieu de se limiter au support utilisateur.</p>
+        <p class="mb-0"><strong>Critère de sélection</strong> — je privilégie les structures où l'infrastructure est exploitée en interne plutôt que sous-traitée : c'est la condition pour qu'un stagiaire touche réellement à la virtualisation, au stockage et à la sauvegarde, au lieu de se limiter au support utilisateur.</p>
       </div>
     </div>
   </div>
@@ -341,7 +488,7 @@
     <div class="cv-tabs reveal">
       <button class="cv-tab active" data-target="cv-fr">Français</button>
       <button class="cv-tab" data-target="cv-en">English</button>
-      <a href="assets/cv/CV_Rayan_SAOUD.pdf" download class="btn" style="margin-left:auto">↓ Télécharger le CV (PDF)</a>
+      <a href="assets/cv/CV_Rayan_SAOUD.pdf" download class="btn push-right">↓ Télécharger le CV (PDF)</a>
     </div>
 
     <!-- CV FR -->
@@ -361,7 +508,7 @@
 
         <div class="cv-block">
           <h4>Profil</h4>
-          <p style="color:var(--text-dim);font-size:.94rem">Étudiant en 2<sup>e</sup> année de BUT Réseaux &amp; Télécommunications, parcours Développement Système &amp; Cloud. Je conçois, déploie et supervise des infrastructures réseau et des services distribués, du LAN commuté jusqu'au microservice virtualisé. Expérience professionnelle en virtualisation d'entreprise : cluster Proxmox VE à haute disponibilité, stockage partagé et sauvegarde.</p>
+          <p class="note">Étudiant en 2<sup>e</sup> année de BUT Réseaux &amp; Télécommunications, parcours Développement Système &amp; Cloud. Je conçois, déploie et supervise des infrastructures réseau et des services distribués, du LAN commuté jusqu'au microservice virtualisé. Expérience professionnelle en virtualisation d'entreprise : cluster Proxmox VE à haute disponibilité, stockage partagé et sauvegarde.</p>
         </div>
 
         <div class="cv-block">
@@ -384,7 +531,7 @@
         <div class="cv-block">
           <h4>Projets techniques &amp; SAÉ</h4>
           <div class="cv-item">
-            <div class="it-title">Réseau multi-sites virtualisé <span style="color:var(--text-faint);font-weight:400">— rôle : services réseau</span></div>
+            <div class="it-title">Réseau multi-sites virtualisé <span class="marker">— rôle : services réseau</span></div>
             <ul><li>VLAN, adressage IP, Cisco (OSPF, STP, sécurité des ports) ; services Linux Debian : DNS/DNSSEC, Apache, mail SMTP/IMAP, Active Directory ; interconnexion MPLS-VPN (BGP) et VRRP.</li></ul>
           </div>
           <div class="cv-item">
@@ -396,7 +543,7 @@
             <ul><li>API indépendantes (authentification, opérations, validation) et journalisation centralisée par messagerie.</li></ul>
           </div>
           <div class="cv-item">
-            <div class="it-title">Pare-feu sur Raspberry Pi <span style="color:var(--text-faint);font-weight:400">— projet personnel</span></div>
+            <div class="it-title">Pare-feu sur Raspberry Pi <span class="marker">— projet personnel</span></div>
             <ul><li>Passerelle de sécurité (iptables/nftables) et serveur OpenVPN pour accès distant sécurisé.</li></ul>
           </div>
         </div>
@@ -415,7 +562,7 @@
 
         <div class="cv-block">
           <h4>Certifications</h4>
-          <p style="color:var(--text-dim);font-size:.92rem">CCNA 1 (Netacad, 2025) · Linphone (2025)</p>
+          <p class="note">CCNA 1 (Netacad, 2025) · Linphone (2025)</p>
         </div>
 
         <div class="cv-block">
@@ -431,9 +578,9 @@
           </div>
         </div>
 
-        <div class="cv-block" style="margin-bottom:0">
+        <div class="cv-block mb-0">
           <h4>Langues</h4>
-          <p style="color:var(--text-dim);font-size:.92rem">Français (natif) · Anglais (B1) · Allemand (B1)</p>
+          <p class="note">Français (natif) · Anglais (B1) · Allemand (B1)</p>
         </div>
       </div>
     </div>
@@ -455,7 +602,7 @@
 
         <div class="cv-block">
           <h4>Profile</h4>
-          <p style="color:var(--text-dim);font-size:.94rem">Second-year student in a French Networks &amp; Telecommunications degree (BUT R&amp;T), Systems &amp; Cloud Development track. I design, deploy and monitor network infrastructures and distributed services — from switched LANs to virtualized microservices. Professional experience in enterprise virtualization: high-availability Proxmox VE cluster, shared storage and backup.</p>
+          <p class="note">Second-year student in a French Networks &amp; Telecommunications degree (BUT R&amp;T), Systems &amp; Cloud Development track. I design, deploy and monitor network infrastructures and distributed services — from switched LANs to virtualized microservices. Professional experience in enterprise virtualization: high-availability Proxmox VE cluster, shared storage and backup.</p>
         </div>
 
         <div class="cv-block">
@@ -478,7 +625,7 @@
         <div class="cv-block">
           <h4>Technical projects &amp; coursework</h4>
           <div class="cv-item">
-            <div class="it-title">Virtualized multi-site network <span style="color:var(--text-faint);font-weight:400">— role: network services</span></div>
+            <div class="it-title">Virtualized multi-site network <span class="marker">— role: network services</span></div>
             <ul><li>VLANs, IP addressing, Cisco (OSPF, STP, port security); Linux Debian services: DNS/DNSSEC, Apache, SMTP/IMAP mail, Active Directory; MPLS-VPN interconnection (BGP) and VRRP.</li></ul>
           </div>
           <div class="cv-item">
@@ -490,7 +637,7 @@
             <ul><li>Independent APIs (authentication, transactions, approval) with centralized message-based logging.</li></ul>
           </div>
           <div class="cv-item">
-            <div class="it-title">Raspberry Pi firewall <span style="color:var(--text-faint);font-weight:400">— personal project</span></div>
+            <div class="it-title">Raspberry Pi firewall <span class="marker">— personal project</span></div>
             <ul><li>Security gateway (iptables/nftables) and OpenVPN server for secure remote access.</li></ul>
           </div>
         </div>
@@ -509,7 +656,7 @@
 
         <div class="cv-block">
           <h4>Certifications</h4>
-          <p style="color:var(--text-dim);font-size:.92rem">CCNA 1 (Netacad, 2025) · Linphone (2025)</p>
+          <p class="note">CCNA 1 (Netacad, 2025) · Linphone (2025)</p>
         </div>
 
         <div class="cv-block">
@@ -525,9 +672,9 @@
           </div>
         </div>
 
-        <div class="cv-block" style="margin-bottom:0">
+        <div class="cv-block mb-0">
           <h4>Languages</h4>
-          <p style="color:var(--text-dim);font-size:.92rem">French (native) · English (B1) · German (B1)</p>
+          <p class="note">French (native) · English (B1) · German (B1)</p>
         </div>
       </div>
     </div>

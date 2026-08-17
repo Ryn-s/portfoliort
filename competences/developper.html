@@ -7,10 +7,21 @@
 <meta name="description" content="Compétence Accompagner le développement d'applications — BUT R&T 2e année, parcours DevCloud.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2330d158'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Portfolio — Rayan Saoud">
+<meta property="og:title" content="Développer — Portfolio Rayan SAOUD">
+<meta property="og:description" content="Compétence Accompagner le développement d'applications — BUT R&T 2e année, parcours DevCloud.">
+<meta property="og:url" content="https://ryn-s.github.io/portfoliort/">
+<meta property="og:image" content="https://ryn-s.github.io/portfoliort/assets/img/preview.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+<div class="glow" aria-hidden="true"></div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -69,15 +80,15 @@
       <div class="ev"><div class="t">Dépôt GitHub de groupe</div><div class="d">Gestion de projet et code des microservices, orchestrés avec Docker Compose.</div></div>
       <div class="ev"><div class="t">Présentation bilan</div><div class="d">Soutenance de groupe de 15-20 minutes en fin de SAÉ.</div></div>
     </div>
-    <figure style="margin:24px 0 0">
-      <img src="../assets/img/archi-microservices.svg" alt="Architecture microservices de l'application bancaire" style="width:100%;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)">
-      <figcaption style="font-family:var(--mono);font-size:0.78rem;color:var(--text-faint);margin-top:10px;text-align:center">Architecture de l'application — ma contribution : authentification (JWT/bcrypt), contrôle d'accès par rôles, service de logs et orchestration Docker Compose.</figcaption>
+    <figure class="figure">
+      <img src="../assets/img/archi-microservices.svg" alt="Architecture microservices de l'application bancaire">
+      <figcaption>Architecture de l'application — ma contribution : authentification (JWT/bcrypt), contrôle d'accès par rôles, service de logs et orchestration Docker Compose.</figcaption>
     </figure>
 
-    <h3 style="margin-top:32px">Planification réelle du projet</h3>
+    <h3 class="stack-lg">Planification réelle du projet</h3>
     <div class="captures captures-wide">
       <figure class="capture">
-        <img src="../assets/img/captures/gantt-sae.png" alt="Diagramme de Gantt de la SAÉ gestion bancaire microservices">
+        <img src="../assets/img/captures/gantt-sae.png" alt="Diagramme de Gantt de la SAÉ gestion bancaire microservices" width="743" height="564">
         <figcaption><strong>Diagramme de Gantt — binôme Rayan &amp; Tom</strong>Planification sur deux semaines avec répartition claire des tâches : en bleu mes responsabilités (auth-service, middleware rôles, logs, Docker Compose), en rouge la partie métier/front de Tom, en vert le travail commun.<span class="badge-real">document réel du projet</span></figcaption>
       </figure>
     </div>
@@ -94,14 +105,14 @@
 
   <section class="subsection reveal">
     <h2><span class="marker">04</span> Lien avec le référentiel</h2>
-    <div class="prose" style="margin-bottom:20px">
+    <div class="prose lead-in">
       <p>Cette compétence correspond, dans le programme national, à <strong>« Accompagner le développement d’applications »</strong>, propre au parcours DevCloud. Les réalisations décrites mobilisent notamment :</p>
     </div>
-    <div class="evidence" style="margin-bottom:24px">
-      <div class="ev"><div class="t">AC25.01 — Développer un microservice</div><div class="d">SAÉ 4.DevCloud.01 : application découpée en services indépendants, chacun développé et conteneurisé séparément.</div></div>
-      <div class="ev"><div class="t">AC25.02 — Mettre en production une application</div><div class="d">Déploiement orchestré avec Docker Compose dans un environnement virtualisé, du code au service accessible.</div></div>
-      <div class="ev"><div class="t">AC25.03 — Programmer son réseau par le code</div><div class="d">pvetool : l’infrastructure de virtualisation pilotée entièrement par l’API — création, configuration réseau et cycle de vie des machines sans interface graphique.</div></div>
-      <div class="ev"><div class="t">AC35.03 — Gérer son infrastructure comme du code</div><div class="d">En perspective : le déploiement décrit par fichier (YAML rapproché de l’état réel du cluster) est la suite naturelle identifiée de pvetool.</div></div>
+    <div class="ac-list lead-in">
+      <div class="ac"><div class="ac-code">AC25.01</div><div><div class="ac-label">Développer un microservice</div><div class="ac-proof">SAÉ 4.DevCloud.01 : application découpée en services indépendants, chacun développé et conteneurisé séparément.</div></div></div>
+      <div class="ac"><div class="ac-code">AC25.02</div><div><div class="ac-label">Mettre en production une application</div><div class="ac-proof">Déploiement orchestré avec Docker Compose dans un environnement virtualisé, du code au service accessible.</div></div></div>
+      <div class="ac"><div class="ac-code">AC25.03</div><div><div class="ac-label">Programmer son réseau par le code</div><div class="ac-proof">pvetool : l’infrastructure de virtualisation pilotée entièrement par l’API — création, configuration réseau et cycle de vie des machines sans interface graphique.</div></div></div>
+      <div class="ac"><div class="ac-code">AC35.03</div><div><div class="ac-label">Gérer son infrastructure comme du code</div><div class="ac-proof">En perspective : le déploiement décrit par fichier (YAML rapproché de l’état réel du cluster) est la suite naturelle identifiée de pvetool.</div></div></div>
     </div>
     <div class="ref-tree">
       <svg class="svg-tree" viewBox="0 0 760 300" role="img" aria-label="Arbre de la compétence Développer">
@@ -148,7 +159,7 @@
     </div>
   </section>
 
-  <div class="hero-cta reveal" style="margin:8px 0 48px">
+  <div class="hero-cta cta-band reveal">
     <a href="fiches-sae.html" class="btn btn-primary">📋 Voir les 3 fiches SAÉ (suivi · journal · synthèse)</a>
     <a href="../index.html#competences" class="btn">← Revenir aux 5 compétences</a>
   </div>
@@ -157,7 +168,8 @@
 <footer>
   <div class="wrap foot-inner">
     <div class="copy">© 2026 Rayan SAOUD · Portfolio BUT R&amp;T S4</div>
-    <div class="foot-links"><a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
+    <div class="foot-links"><a href="../index.html#stage">Stage</a>
+      <a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
   </div>
 </footer>
 

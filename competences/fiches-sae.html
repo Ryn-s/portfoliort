@@ -7,32 +7,21 @@
 <meta name="description" content="Bilan d'une SAÉ : fiche de suivi, journal de bord et fiche synthèse — SAÉ gestion bancaire microservices.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2330d158'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Portfolio — Rayan Saoud">
+<meta property="og:title" content="Fiches SAÉ — Portfolio Rayan SAOUD">
+<meta property="og:description" content="Bilan d'une SAÉ : fiche de suivi, journal de bord et fiche synthèse — SAÉ gestion bancaire microservices.">
+<meta property="og:url" content="https://ryn-s.github.io/portfoliort/">
+<meta property="og:image" content="https://ryn-s.github.io/portfoliort/assets/img/preview.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
 <link rel="stylesheet" href="../assets/css/style.css">
-<style>
-  .fiche { border:1px solid var(--line); border-radius:var(--radius); background:var(--bg-elev); padding:28px; margin-bottom:24px; }
-  .fiche-tag { font-family:var(--mono); font-size:0.74rem; color:var(--accent); border:1px solid rgba(77,212,172,.3); background:rgba(77,212,172,.08); border-radius:4px; padding:2px 9px; display:inline-block; margin-bottom:14px; }
-  .fiche h2 { font-size:1.25rem; font-weight:700; margin-bottom:4px; }
-  .fiche .when { font-family:var(--mono); font-size:0.8rem; color:var(--text-faint); margin-bottom:20px; }
-  .frow { display:grid; grid-template-columns:200px 1fr; gap:2px; border-top:1px solid var(--line-soft); padding:12px 0; }
-  .frow:last-child { border-bottom:1px solid var(--line-soft); }
-  .frow .fk { font-family:var(--mono); font-size:0.82rem; color:var(--accent-2); }
-  .frow .fv { color:var(--text-dim); font-size:0.93rem; }
-  .frow .fv strong { color:var(--text); font-weight:600; }
-  .frow .fv ul { list-style:none; margin:0; }
-  .frow .fv ul li { position:relative; padding-left:18px; margin-bottom:5px; }
-  .frow .fv ul li::before { content:"▹"; position:absolute; left:0; color:var(--accent); }
-  /* journal table */
-  .jtable { border:1px solid var(--line); border-radius:var(--radius-sm); overflow:hidden; }
-  .jday { border-bottom:1px solid var(--line); padding:16px 18px; }
-  .jday:last-child { border-bottom:none; }
-  .jday .jd { font-family:var(--mono); font-size:0.8rem; color:var(--accent); margin-bottom:8px; }
-  .jday .jl { margin-bottom:6px; font-size:0.9rem; color:var(--text-dim); }
-  .jday .jl b { color:var(--text); font-weight:600; font-family:var(--mono); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; display:block; margin-bottom:2px; color:var(--text-faint); }
-  @media (max-width:680px){ .frow { grid-template-columns:1fr; gap:4px; } }
-</style>
 </head>
 <body>
+<div class="glow" aria-hidden="true"></div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -55,7 +44,7 @@
     <div class="verb-big">BILAN D'UNE SAÉ · démarche portfolio</div>
     <h1>Fiches SAÉ — gestion bancaire microservices</h1>
     <p class="lead">Documentation d'une SAÉ à ses trois temps, selon la méthode vue en cours : une fiche de suivi (avant), un journal de bord (pendant) et une fiche synthèse (après).</p>
-    <div class="hero-cta" style="margin-top:24px">
+    <div class="hero-cta stack">
       <a href="../assets/cv/Fiches_SAE_RayanSAOUD.pdf" download class="btn">↓ Télécharger les 3 fiches (PDF)</a>
     </div>
   </div>
@@ -131,7 +120,7 @@
     </div>
   </section>
 
-  <div class="hero-cta reveal" style="margin:8px 0 48px">
+  <div class="hero-cta cta-band reveal">
     <a href="developper.html" class="btn btn-primary">← Compétence Développer</a>
     <a href="../index.html#competences" class="btn">Toutes les compétences</a>
   </div>
@@ -140,7 +129,8 @@
 <footer>
   <div class="wrap foot-inner">
     <div class="copy">© 2026 Rayan SAOUD · Portfolio BUT R&amp;T S4</div>
-    <div class="foot-links"><a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
+    <div class="foot-links"><a href="../index.html#stage">Stage</a>
+      <a href="../index.html#competences">Compétences</a><a href="../index.html#cv">CV</a></div>
   </div>
 </footer>
 
